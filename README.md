@@ -13,7 +13,3 @@ This is a personal project to help in my search of buying another used car.
 I used the BeautifulSoup library in Python to scrape used car listing data in Georgia from cars.com. Then cleaned up the data collected and saved it as a CSV file using Pandas.
 
 "get_listing_data.py" file gets zip code, mileage, price, car make and model, and associated link for every listing on cars.com with a Georgia zip code. All listings were saved in a csv file. Data was then cleaned using pandas to create cleaned tables to be used in Tableau for data visualizations.
-
-## Results
-
-## Optimizations
