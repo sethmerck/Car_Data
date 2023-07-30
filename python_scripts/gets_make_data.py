@@ -5,7 +5,7 @@ brands = []
 for i in f.readlines():
     brands.append(i.strip())
 
-df = pd.read_csv('cleaned_cars.csv')
+df = pd.read_csv('cleaned_cars_links.csv')
 df['Car'] = df['Car'].str.split(' ')
 df = df.explode('Car')
 df = df.query(f"Car in {brands}")
