@@ -1,12 +1,12 @@
 # READ ME
 
-The Python scripts I used to collect and clean used car data are located in this repository.
+This is a personal project to aid in my search of buying another used car. 
 
-CSV files in "outputs" folder were then used to create Tableau dashboard located <a href="https://public.tableau.com/app/profile/sethmerck/viz/GeorgiaUsedCarData/Dashboard1">here.</a>
+The Python scripts I used to collect and clean used car data are located in this repository.
 
 Text files in "assets" folder were used as lists to iterate over after being read into Python.
 
-This is a personal project to aid in my search of buying another used car. 
+CSV files in "outputs" folder were then used to create Tableau dashboard located <a href="https://public.tableau.com/app/profile/sethmerck/viz/GeorgiaUsedCarData/Dashboard1">here.</a>
 
 ## How It's Made: 
 
