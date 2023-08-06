@@ -19,3 +19,8 @@ I used the BeautifulSoup library in Python to scrape used car listing data in Ge
 ## Results:
 
 I found quite a few reasonably valued cars in my area that I'm interested in. I also found a few interested details in regards to what make of cars were most widely resold in the state (Honda, Chevrolet, Nissan, Ford, Toyota) among other details which I will explain further here within the next few days.
+
+
+## Optimizations:
+
+Currently working on using GitHub Actions to automate and update data regularly
