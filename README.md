@@ -23,4 +23,4 @@ I found quite a few reasonably valued cars in my area that I'm interested in. I 
 
 ## Optimizations:
 
-Currently working on using GitHub Actions to automate and update data regularly
+Currently working on using GitHub Actions to automate and update data regularly. Willproduced updated csv file at regular time intervals.
