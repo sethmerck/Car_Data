@@ -68,9 +68,10 @@ if __name__ == "__main__":
                 zip_dict.append({'Zip': "30040", 'Car': '', 'Price': '', 'Mileage': '', 'Link': ''})
             else:
                 zip_dict.append(soup_dict)
-        logger.info(zip_dict)
-        # fields = ['Zip', 'Car', 'Price', 'Mileage', 'Link']
-        # with open("test_actions.csv", "w") as f:
-        #     w = csv.DictWriter(f, fields)
-        #     w.writeheader()
-        #     w.writerows(zip_dict)
+        
+        fields = ['Zip', 'Car', 'Price', 'Mileage', 'Link']
+        with open("test_actions.csv", "w") as f:
+             w = csv.DictWriter(f, fields)
+             w.writeheader()
+             w.writerows(zip_dict)
+             logger.info(f)
