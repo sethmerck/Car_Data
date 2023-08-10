@@ -3,3 +3,5 @@
 2023-08-09 18:38:42,864 - __main__ - INFO - [{'Zip': '30040', 'Car': '2022 BMW X7 xDrive40i', 'Price': '$79,000', 'Mileage': '24,479 mi.', 'Link': 'https://www.cars.com/vehicledetail/d2292601-1ebf-455a-8f4b-0f02cbc93b81/'}, {'Zip': '30040', 'Car': '2012 Porsche Cayenne Hybrid S', 'Price': '$21,000', 'Mileage': '70,000 mi.', 'Link': 'https://www.cars.com/vehicledetail/925bd20b-a3ca-48d7-9b5d-9f24140cdb17/'}, {'Zip': '30040', 'Car': '2013 Jeep Wrangler Unlimited Sport', 'Price': '$20,995', 'Mileage': '106,500 mi.', 'Link': 'https://www.cars.com/vehicledetail/d0f42ba5-014b-49af-aa17-c3c1e94387d0/'}, {'Zip': '30040', 'Car': '2010 Honda Civic LX', 'Price': '$9,900', 'Mileage': '106,500 mi.', 'Link': 'https://www.cars.com/vehicledetail/3c35583f-5d9c-4716-9de4-c743e0c25030/'}]
 2023-08-10 03:42:15,668 - __main__ - INFO - Token value: 
 2023-08-10 03:42:16,872 - __main__ - INFO - <_io.TextIOWrapper name='test_actions.csv' mode='w' encoding='UTF-8'>
+2023-08-10 03:58:07,788 - __main__ - INFO - Token value: 
+2023-08-10 03:58:08,960 - __main__ - INFO - <_csv.reader object at 0x7f2a345b65f0>
