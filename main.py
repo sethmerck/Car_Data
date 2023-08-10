@@ -75,4 +75,4 @@ if __name__ == "__main__":
              w = csv.DictWriter(f, fields)
              w.writeheader()
              w.writerows(zip_dict)
-             logger.info(f)
+             logger.info(csv.reader(f))
