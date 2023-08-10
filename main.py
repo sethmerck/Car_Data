@@ -144,12 +144,12 @@ if __name__ == "__main__":
             w.writerows(zip_dict)
 
 
-            df = pd.read_csv(f"test_actions{st}.csv")
-            df = df.dropna()
-            df = df.drop_duplicates(subset=['Link'])
-            df = df.drop(df[df["Price"]==''].index)
-            df = df.drop(df[df["Price"]=='Not Priced'].index)
-            
-            df["Price"] = df["Price"].replace('[\D]', '', regex=True).astype(int)
-            df["Mileage"] = df["Mileage"].replace('[\D]', '', regex=True).astype(int)
-            df.to_csv(f'test_actions{st}.csv', index=False)
+        df = pd.read_csv(f"test_actions{st}.csv")
+        df = df.dropna()
+        df = df.drop_duplicates(subset=['Link'])
+        df = df.drop(df[df["Price"]==''].index)
+        df = df.drop(df[df["Price"]=='Not Priced'].index)
+        
+        df["Price"] = df["Price"].replace('[\D]', '', regex=True).astype(int)
+        df["Mileage"] = df["Mileage"].replace('[\D]', '', regex=True).astype(int)
+        df.to_csv(f'test_actions{st}.csv', index=False)
