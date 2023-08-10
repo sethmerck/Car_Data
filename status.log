@@ -11,3 +11,5 @@
 2023-08-10 04:29:13,094 - __main__ - INFO - <_csv.reader object at 0x7f8f9f8d45f0>
 2023-08-10 04:37:22,637 - __main__ - INFO - Token value: 
 2023-08-10 04:37:24,312 - __main__ - INFO - <_io.TextIOWrapper name='test_actions.csv' mode='w' encoding='UTF-8'>
+2023-08-10 04:45:20,963 - __main__ - INFO - Token value: 
+2023-08-10 04:45:22,023 - __main__ - INFO - <_io.TextIOWrapper name='test_actions2.csv' mode='w' encoding='UTF-8'>
