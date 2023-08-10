@@ -138,7 +138,7 @@ if __name__ == "__main__":
                     else:
                         zip_dict.append(soup_dict)
         fields = ['Zip', 'Car', 'Price', 'Mileage', 'Link']
-        path = f"Used_Cars_in_GA/working_dataset/test_actions{st}.csv"
+        path = f"working_dataset/test_actions{st}.csv"
         with open(path, "w") as f:
             w = csv.DictWriter(f, fields)
             w.writeheader()
