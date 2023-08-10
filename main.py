@@ -4,6 +4,7 @@ import os
 import csv
 from bs4 import BeautifulSoup as bs
 import requests
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -84,3 +85,14 @@ if __name__ == "__main__":
              w.writeheader()
              w.writerows(zip_dict)
              logger.info(f)
+
+
+        df = pd.read_csv(f'test_actions{st}.csv')
+        df = df.dropna()
+        df = df.drop_duplicates(subset=['Link'])
+        df = df.drop(df[df["Price"]==''].index)
+        df = df.drop(df[df["Price"]=='Not Priced'].index)
+        
+        df["Price"] = df["Price"].replace('[\D]', '', regex=True).astype(int)
+        df["Mileage"] = df["Mileage"].replace('[\D]', '', regex=True).astype(int)
+        df.to_csv(f'test_actions{st}.csv', index=False)
