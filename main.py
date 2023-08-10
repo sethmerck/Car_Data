@@ -38,7 +38,7 @@ if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
     with open("zips.txt") as f:
         zip_dict = []
-        for line in f.readlines()[:10]:
+        for line in f.readlines():
             page_counter = 1
     
             url = f"https://www.cars.com/shopping/results/?list_price_max=&makes[]=&maximum_distance=1&models[]=&page={page_counter}&page_size=100&stock_type=all&zip={line.strip()}"
