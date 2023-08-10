@@ -26,6 +26,14 @@ except KeyError:
 
 
 if __name__ == "__main__":
+    if not os.path.exists('log.txt'):
+        with open('log.txt','w') as f:
+            f.write('0')
+    with open('log.txt','r') as f:
+        st = int(f.read())
+        st+=1 
+    with open('log.txt','w') as f:
+        f.write(str(st))
     logger.info(f"Token value: {SOME_SECRET}")
     url = f"https://www.cars.com/shopping/results/?list_price_max=&makes[]=&maximum_distance=1&models[]=&page=1&page_size=100&stock_type=all&zip=30040"
     req = requests.get(url)
