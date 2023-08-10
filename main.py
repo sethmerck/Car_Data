@@ -38,7 +38,7 @@ if __name__ == "__main__":
     logger.info(f"Token value: {SOME_SECRET}")
     with open("zips.txt") as f:
         zip_dict = []
-        for line in f.readlines():
+        for line in f.readlines()[:10]:
             page_counter = 1
     
             url = f"https://www.cars.com/shopping/results/?list_price_max=&makes[]=&maximum_distance=1&models[]=&page={page_counter}&page_size=100&stock_type=all&zip={line.strip()}"
@@ -138,13 +138,14 @@ if __name__ == "__main__":
                     else:
                         zip_dict.append(soup_dict)
         fields = ['Zip', 'Car', 'Price', 'Mileage', 'Link']
-        with open(f"test_actions{st}.csv", "w") as f:
+        path = f"Used_Cars_in_GA/working_dataset/test_actions{st}.csv"
+        with open(path, "w") as f:
             w = csv.DictWriter(f, fields)
             w.writeheader()
             w.writerows(zip_dict)
 
 
-        df = pd.read_csv(f"test_actions{st}.csv")
+        df = pd.read_csv(path)
         df = df.dropna()
         df = df.drop_duplicates(subset=['Link'])
         df = df.drop(df[df["Price"]==''].index)
@@ -152,4 +153,4 @@ if __name__ == "__main__":
         
         df["Price"] = df["Price"].replace('[\D]', '', regex=True).astype(int)
         df["Mileage"] = df["Mileage"].replace('[\D]', '', regex=True).astype(int)
-        df.to_csv(f'test_actions{st}.csv', index=False)
+        df.to_csv(path, index=False)
