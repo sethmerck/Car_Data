@@ -10,7 +10,7 @@ CSV files in "outputs" folder were then used to create Tableau dashboard located
 
 ## How It's Made: 
 
-**Tech used:** BeautifulSoup and Pandas libraries in Python; Tableau
+**Tech used:** BeautifulSoup and Pandas libraries in Python; Tableau; GitHub Actions
 
 I used the BeautifulSoup library in Python to scrape used car listing data in Georgia from cars.com. Then cleaned up the data collected and saved it as a CSV file using Pandas.
 
