@@ -16,6 +16,8 @@ I used the BeautifulSoup library in Python to scrape used car listing data in Ge
 
 "get_listing_data.py" file gets zip code, mileage, price, car make and model, and associated link for every listing on cars.com with a Georgia zip code. All listings were saved in a CSV file. Data was then cleaned using pandas to create cleaned tables to be used in Tableau for data visualizations.
 
+Workflow folder and main.py file use Github Actions to periodically scrape, clean, and save data in a csv file.
+
 ## Results:
 
 I found quite a few reasonably valued cars in my area that I'm interested in. I also found which makes were most widely resold in the state (Honda, Chevrolet, Nissan, Ford, Toyota).
