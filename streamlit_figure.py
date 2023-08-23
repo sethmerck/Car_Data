@@ -1,4 +1,4 @@
-### creates chart with the most recent csv file in folder
+### creates chart with the most recent csv file in working_dataset folder
 
 import os
 import pandas as pd
@@ -6,9 +6,9 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-recent_file = [f for f in os.listdir('test_folder')][-1]
+recent_file = [f for f in os.listdir('working_dataset')][-1]
 
-data = pd.read_csv(f'test_folder\{recent_file}') #path folder of the data file
+data = pd.read_csv(f'working_dataset\{recent_file}') #path folder of the data file
 data = data.drop(data[data["Mileage"]<5].index)
 
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
