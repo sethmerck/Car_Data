@@ -25,4 +25,4 @@ I found quite a few reasonably valued cars in my area that I'm interested in. I 
 
 ## Optimizations:
 
-Currently working on using GitHub Actions to automate data pipeline. Will produce updated csv file at regular time intervals. Link Streamlit dashboard to this repo to have the most updated data shown on dashboard. Eventually once enough time has passed, create visualizations showing the change in dataset over time and observe any trends if present.
+Currently working on using GitHub Actions to automate data pipeline. Will produce updated csv file at regular time intervals. Link Streamlit or Tableau dashboard to this repo to have the most updated data shown on dashboard. Eventually once enough time has passed, create visualizations showing the change in dataset over time and observe any trends if present.
