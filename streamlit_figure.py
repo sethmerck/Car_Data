@@ -1,4 +1,4 @@
-### creates chart with the most recent csv file in working_dataset folder
+### creates chart, using streamlit library, with the most recent csv file in working_dataset folder
 
 import os
 import pandas as pd
