@@ -12,7 +12,7 @@ CSV files in this folder were then used to create Tableau dashboard located <a h
 
 I used the BeautifulSoup library in Python to scrape used car listing data in Georgia from cars.com. Then cleaned up the data collected and saved it as a CSV file using Pandas.
 
-"get_listing_data.py" file gets zip code, mileage, price, car make and model, and associated link for every listing on cars.com with a Georgia zip code. All listings were saved in a CSV file. Data was then cleaned using pandas to create cleaned tables to be used in Tableau for data visualizations.
+I scraped zip code, mileage, price, car make and model, and associated link for every listing on cars.com with a Georgia zip code. Data was then cleaned using pandas before saving as a CSV file.
 
 Workflow folder and main.py file use Github Actions to periodically scrape, clean, and save data in an updated csv file.
 
