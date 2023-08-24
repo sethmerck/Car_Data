@@ -5,7 +5,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
+r = st.slider('csv_value', min_value=1, max_value=5)
 
 recent_file = f"test_actions{r}.csv"
 
