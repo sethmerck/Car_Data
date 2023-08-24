@@ -5,7 +5,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-recent_file = [f for f in os.listdir('working_dataset')][-1]
+recent_file = f'test_actions{len(os.listdir('working_dataset'))}'
 
 data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data file
 data = data.drop(data[data["Mileage"]<5].index)
@@ -16,5 +16,5 @@ plt.ylabel('Price', fontsize = 22, labelpad=21)
 plt.ylim(0, 250000)
 plt.xlim(0, 350000)
 
-st.write([f for f in os.listdir('working_dataset')])
+st.write(recent_file)
 st.pyplot(plot.get_figure())
