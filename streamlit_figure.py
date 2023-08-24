@@ -1,5 +1,4 @@
 ### creates chart, using streamlit library, with the most recent csv file in working_dataset folder
-
 import os
 import pandas as pd
 import streamlit as st
