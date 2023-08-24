@@ -5,7 +5,9 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-recent_file = f"test_actions{len(os.listdir('working_dataset'))}.csv"
+r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
+
+recent_file = f"test_actions{r}.csv"
 
 data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data file
 data = data.drop(data[data["Mileage"]<5].index)
