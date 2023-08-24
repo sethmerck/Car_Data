@@ -2,9 +2,9 @@
 
 This is a personal project to aid in my search of buying another used car. 
 
-The Python scripts I used to collect and clean used car data are located in this repository. I then compiled these scripts into one script "main.py" which automatically runs once a week using GitHub Actions. The output of this python script is a cleaned csv file of all relevant car listings in the state of Georgia from cars.com. 
+The Python scripts I used to collect and clean used car data are located in this repository. I then compiled these scripts into one script "main.py" which automatically runs once a week using GitHub Actions. The output of this python script is a cleaned CSV file of all relevant car listings in the state of Georgia from cars.com. CSV files are located in the "working_dataset" directory.
 
-CSV files in "outputs" folder were then used to create Tableau dashboard located <a href="https://public.tableau.com/app/profile/sethmerck/viz/GeorgiaUsedCarData/Dashboard1">here.</a>
+CSV files in this folder were then used to create Tableau dashboard located <a href="https://public.tableau.com/app/profile/sethmerck/viz/GeorgiaUsedCarData/Dashboard1">here.</a>
 
 ## How It's Made: 
 
