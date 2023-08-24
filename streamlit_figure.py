@@ -16,4 +16,5 @@ plt.ylabel('Price', fontsize = 22, labelpad=21)
 plt.ylim(0, 250000)
 plt.xlim(0, 350000)
 
+st.write(recent_file)
 st.pyplot(plot.get_figure())
