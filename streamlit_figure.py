@@ -33,4 +33,5 @@ for i in f.readlines():
 data['Car'] = data['Car'].str.split(' ')
 data = data.explode('Car')
 data = data.query(f"Car in {brands}")
-st.dataframe(data)
+
+st.dataframe(data.groupby(by=["Car"]).sum())
