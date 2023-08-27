@@ -6,11 +6,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 with open('status.log', 'r') as logs:
-    lines = logs.readlines()[-6:][:10]
+    lines = logs.readlines()[-6:]
+    lines = [i[:10] for i in lines]
 
 # r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
 
-z = st.select_slider('Select a range of color wavelength',options=[type(i) for i in lines])
+z = st.select_slider('Select a range of color wavelength',options=lines)
 
 # def index_containing_substring(lines, z):
 #     for i, s in enumerate(lines):
