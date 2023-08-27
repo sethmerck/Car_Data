@@ -6,18 +6,18 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 with open('status.log', 'r') as logs:
-    lines = logs.readlines()[-6:]
+    lines = logs.readlines()[-6:][:10]
 
 # r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
 
-z = st.select_slider('Select a range of color wavelength',options=lines)[:10]
+z = st.select_slider('Select a range of color wavelength',options=lines)
 
-def index_containing_substring(lines, z):
-    for i, s in enumerate(lines):
-        if z in s:
-              return s
+# def index_containing_substring(lines, z):
+#     for i, s in enumerate(lines):
+#         if z in s:
+#               return s
 
-recent_file = f"test_actions{(lines.index(index_containing_substring(lines, z))) + 1}.csv"
+recent_file = f"test_actions{lines.index(z) + 1}.csv"
 
 data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data file
 data = data.drop(data[data["Mileage"]<5].index)
