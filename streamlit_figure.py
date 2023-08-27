@@ -17,7 +17,7 @@ def index_containing_substring(lines, z):
         if z in s:
               return s
 
-recent_file = f"test_actions{lines.index(index_containing_substring(lines, z)) + 1}.csv"
+recent_file = f"test_actions{(lines.index(index_containing_substring(lines, z))) + 1}.csv"
 
 data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data file
 data = data.drop(data[data["Mileage"]<5].index)
