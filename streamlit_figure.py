@@ -12,7 +12,7 @@ r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_datase
 
 z = st.select_slider('Select a range of color wavelength',options=lines)
 
-recent_file = f"test_actions{r}.csv"
+recent_file = f"test_actions{lines.index(z)}.csv"
 
 data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data file
 data = data.drop(data[data["Mileage"]<5].index)
