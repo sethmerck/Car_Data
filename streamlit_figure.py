@@ -34,4 +34,5 @@ data['Car'] = data['Car'].str.split(' ')
 data = data.explode('Car')
 data = data.query(f"Car in {brands}")
 
-st.dataframe(data.groupby(by="Car").sum())
+data_grouped = data.groupby(by="Car")["Price"].sum()
+st.dataframe(data_grouped)
