@@ -12,7 +12,7 @@ with open('status.log', 'r') as logs:
     lines = [i[:10] for i in lines]
 
 start_t = datetime.strptime(lines[0], '%Y-%m-%d')
-end_t = datetime.strptime(lines[-1], '%y/%m/%d')
+end_t = datetime.strptime(lines[-1], '%Y-%m-%d')
 z = st.select_slider('Date Collected',options=lines, value=[start_t,end_t])
 
 recent_file = f"test_actions{lines.index(z) + 1}.csv"
