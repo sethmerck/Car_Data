@@ -10,7 +10,7 @@ with open('status.log', 'r') as logs:
 
 # r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
 
-z = st.select_slider('Select a range of color wavelength',value=lines, options=[1,2,3,4,5,6], disabled=True)
+z = st.select_slider('Select a range of color wavelength',options=lines, value=(1,6), disabled=True)
 
 recent_file = f"test_actions{lines.index(z) + 1}.csv"
 
