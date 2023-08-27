@@ -7,7 +7,7 @@ import seaborn as sns
 import numpy as np
 from datetime import datetime
 
-st.set_page_config(layout="wide")
+# st.set_page_config(layout="wide")
 with open('status.log', 'r') as logs:
     lines = logs.readlines()[-6:]
     lines = [datetime.strptime(i[:10], '%Y-%m-%d').date() for i in lines]
@@ -25,7 +25,7 @@ data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data fi
 prev_data = prev_data.drop(prev_data[prev_data["Mileage"]<5].index)
 data = data.drop(data[data["Mileage"]<5].index)
 
-prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
+# prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 
 plt.xlabel('Mileage', fontsize = 22, labelpad=21)
@@ -37,8 +37,8 @@ plt.ylim(0, 250000)
 plt.xlim(0, 350000)
 
 
-st.write(prev_file)
-st.pyplot(prev_plot.get_figure())
+# st.write(prev_file)
+# st.pyplot(prev_plot.get_figure())
 st.write(recent_file)
 st.pyplot(plot.get_figure())
 
