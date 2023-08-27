@@ -24,3 +24,13 @@ plt.xlim(0, 350000)
 
 st.write(recent_file)
 st.pyplot(plot.get_figure())
+
+f = open('brands.txt')
+brands = []
+for i in f.readlines():
+    brands.append(i.strip())
+
+data['Car'] = data['Car'].str.split(' ')
+data = data.explode('Car')
+data = data.query(f"Car in {brands}")
+st.dataframe(data)
