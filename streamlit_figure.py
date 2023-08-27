@@ -9,7 +9,7 @@ with open('status.log', 'r') as logs:
     lines = logs.readlines()[-6:]
     lines = [i[:10] for i in lines]
 
-z = st.select_slider('Select a range of color wavelength',options=lines)
+z = st.select_slider('Date Collected',options=lines)
 
 recent_file = f"test_actions{lines.index(z) + 1}.csv"
 
