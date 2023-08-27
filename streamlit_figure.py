@@ -10,7 +10,7 @@ with open('status.log', 'r') as logs:
 
 # r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
 
-z = st.select_slider('Select a range of color wavelength',options=lines)
+z = st.select_slider('Select a range of color wavelength',options=[type(i) for i in lines])
 
 # def index_containing_substring(lines, z):
 #     for i, s in enumerate(lines):
