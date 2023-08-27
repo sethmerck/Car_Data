@@ -9,7 +9,7 @@ from datetime import datetime
 
 with open('status.log', 'r') as logs:
     lines = logs.readlines()[-6:]
-    lines = [i[:10] for i in lines]
+    lines = [datetime.strptime(i[:10], '%Y-%m-%d').date() for i in lines]
 
 start_t = datetime.strptime(lines[0], '%Y-%m-%d').date()
 end_t = datetime.strptime(lines[-1], '%Y-%m-%d').date()
