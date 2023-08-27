@@ -36,5 +36,5 @@ data = data.explode('Car')
 data = data.query(f"Car in {brands}")
 
 
-data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max'])
+data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 st.dataframe(data_grouped)
