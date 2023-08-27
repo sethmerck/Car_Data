@@ -5,6 +5,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+from datetime import datetime
 
 with open('status.log', 'r') as logs:
     lines = logs.readlines()[-6:]
