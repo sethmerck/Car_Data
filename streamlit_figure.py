@@ -7,6 +7,7 @@ import seaborn as sns
 import numpy as np
 from datetime import datetime
 
+st.set_page_config(layout="wide")
 with open('status.log', 'r') as logs:
     lines = logs.readlines()[-6:]
     lines = [datetime.strptime(i[:10], '%Y-%m-%d').date() for i in lines]
