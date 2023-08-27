@@ -11,7 +11,7 @@ with open('status.log', 'r') as logs:
     lines = logs.readlines()[-6:]
     lines = [i[:10] for i in lines]
 
-start_t = datetime.strptime(lines[0], '%y-%m-%d')
+start_t = datetime.strptime(lines[0], '%Y-%m-%d')
 end_t = datetime.strptime(lines[-1], '%y/%m/%d')
 z = st.select_slider('Date Collected',options=lines, value=[start_t,end_t])
 
