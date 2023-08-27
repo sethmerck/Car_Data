@@ -8,9 +8,9 @@ import seaborn as sns
 with open('status.log', 'r') as logs:
     lines = logs.readlines()[-6:]
 
-r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
+# r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
 
-z = st.select_slider('Select a range of color wavelength',options=lines)
+z = st.select_slider('Select a range of color wavelength',options=lines, label_visibility="collapsed")
 
 recent_file = f"test_actions{lines.index(z) + 1}.csv"
 
