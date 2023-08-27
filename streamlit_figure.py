@@ -12,6 +12,8 @@ with open('status.log', 'r') as logs:
 
 z = st.select_slider('Select a range of color wavelength',options=lines)[:10]
 
+st.write([i for i, s in enumerate(lines) if z in s])
+
 recent_file = f"test_actions{lines.index(z) + 1}.csv"
 
 data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data file
