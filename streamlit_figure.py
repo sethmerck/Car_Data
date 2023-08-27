@@ -50,5 +50,6 @@ data = data.query(f"Car in {brands}")
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 
+data_grouped['prev_count'] = prev_data_grouped['count']
 data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
 st.dataframe(data_grouped,use_container_width=True)
