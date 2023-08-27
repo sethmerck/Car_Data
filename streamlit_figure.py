@@ -10,10 +10,7 @@ with open('status.log', 'r') as logs:
 
 r = st.slider('csv_value', min_value=1, max_value=len(os.listdir('working_dataset')))
 
-start_color, end_color = st.select_slider(
-    'Select a range of color wavelength',
-    options=lines)
-st.write('You selected wavelengths between', start_color, 'and', end_color)
+z = st.select_slider('Select a range of color wavelength',options=lines)
 
 recent_file = f"test_actions{r}.csv"
 
