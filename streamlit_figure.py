@@ -24,14 +24,20 @@ data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data fi
 prev_data = prev_data.drop(prev_data[prev_data["Mileage"]<5].index)
 data = data.drop(data[data["Mileage"]<5].index)
 
+prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
+
 plt.xlabel('Mileage', fontsize = 22, labelpad=21)
+
 plt.ylabel('Price', fontsize = 22, labelpad=21)
+
 plt.ylim(0, 250000)
+
 plt.xlim(0, 350000)
 
+
 st.write(recent_file)
-st.pyplot(plot.get_figure())
+st.container(st.pyplot(prev_plot.get_figure()), st.pyplot(plot.get_figure()))
 
 f = open('brands.txt')
 brands = []
