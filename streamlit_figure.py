@@ -35,5 +35,6 @@ data['Car'] = data['Car'].str.split(' ')
 data = data.explode('Car')
 data = data.query(f"Car in {brands}")
 
-data_grouped = data.groupby(by="Car")["Price"].sum()
+xdf = df.groupby("a").agg([np.mean, np.std])
+data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std])
 st.dataframe(data_grouped)
