@@ -37,8 +37,10 @@ plt.ylim(0, 250000)
 plt.xlim(0, 350000)
 
 
+st.write(prev_file)
+st.pyplot(prev_plot.get_figure())
 st.write(recent_file)
-st.container(st.pyplot(prev_plot.get_figure()), st.pyplot(plot.get_figure()))
+st.pyplot(plot.get_figure())
 
 f = open('brands.txt')
 brands = []
