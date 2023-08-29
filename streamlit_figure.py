@@ -25,24 +25,18 @@ data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data fi
 prev_data = prev_data.drop(prev_data[prev_data["Mileage"]<5].index)
 data = data.drop(data[data["Mileage"]<5].index)
 
-# prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
+fig, ax = plt.subplots(1, 2)
+prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 
-# x = np.linspace(0, 2 * np.pi, 400)
-# y = np.sin(x ** 2)
+for k in ax:
+    k.set_xlabel('Mileage', fontsize = 22, labelpad=21)
 
-# fig, (ax1, ax2) = plt.subplots(1, 2)
-# fig.suptitle('Horizontally stacked subplots')
-# ax1.plot(np.linspace(0, 2 * np.pi, 400), np.sin(x ** 2))
-# ax2.plot(np.linspace(0, 2 * np.pi, 400), ((np.sin(x ** 2)) * -1))
+    k.set_ylabel('Price', fontsize = 22, labelpad=21)
 
-plt.xlabel('Mileage', fontsize = 22, labelpad=21)
+    k.set_ylim(0, 250000)
 
-plt.ylabel('Price', fontsize = 22, labelpad=21)
-
-plt.ylim(0, 250000)
-
-plt.xlim(0, 350000)
+    k.set_xlim(0, 350000)
 
 
 # st.write(prev_file)
