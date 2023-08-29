@@ -42,7 +42,7 @@ for k in ax:
 # st.write(prev_file)
 # st.pyplot(prev_plot.get_figure())
 st.write(recent_file)
-st.pyplot(plot.get_figure())
+st.pyplot(plt.show())
 
 f = open('brands.txt')
 brands = []
