@@ -32,13 +32,13 @@ data = data.drop(data[data["Mileage"]<5].index)
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 
 # # for k in ax:
-# ax[0].set_xlabel('Mileage', fontsize = 22, labelpad=21)
+plt.xlabel('Mileage', fontsize = 22, labelpad=21)
 
-# ax[0].set_ylabel('Price', fontsize = 22, labelpad=21)
+plt.ylabel('Price', fontsize = 22, labelpad=21)
 
-# ax[0].set_ylim(0, 250000)
+plt.ylim(0, 250000)
 
-# ax[0].set_xlim(0, 350000)
+plt.xlim(0, 350000)
 
 
 # st.write(prev_file)
