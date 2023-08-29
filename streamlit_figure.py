@@ -28,13 +28,13 @@ data = data.drop(data[data["Mileage"]<5].index)
 # prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 
-x = np.linspace(0, 2 * np.pi, 400)
-y = np.sin(x ** 2)
+# x = np.linspace(0, 2 * np.pi, 400)
+# y = np.sin(x ** 2)
 
 fig, (ax1, ax2) = plt.subplots(1, 2)
 fig.suptitle('Horizontally stacked subplots')
-ax1.plot(x, y)
-ax2.plot(x, -y)
+ax1.plot(np.linspace(0, 2 * np.pi, 400), np.sin(x ** 2))
+ax2.plot(np.linspace(0, 2 * np.pi, 400), ((np.sin(x ** 2)) * -1))
 
 plt.xlabel('Mileage', fontsize = 22, labelpad=21)
 
