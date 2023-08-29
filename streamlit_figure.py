@@ -28,6 +28,11 @@ data = data.drop(data[data["Mileage"]<5].index)
 # prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True)
 
+fig, (ax1, ax2) = plt.subplots(1, 2)
+fig.suptitle('Horizontally stacked subplots')
+ax1.plot(x, y)
+ax2.plot(x, -y)
+
 plt.xlabel('Mileage', fontsize = 22, labelpad=21)
 
 plt.ylabel('Price', fontsize = 22, labelpad=21)
