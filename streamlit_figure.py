@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from datetime import datetime
-# from PIL import Image
 
-st.set_page_config(layout="wide")
+
+# st.set_page_config(layout="wide")
 with open('status.log', 'r') as logs:
     lines = logs.readlines()[-6:]
     lines = [datetime.strptime(i[:10], '%Y-%m-%d').date() for i in lines]
@@ -41,10 +41,10 @@ for k in ax:
     
     k.set_xlim(0, 350000)
 
-# f = Image.open('a.png')
+
 st.write(prev_file)
 st.pyplot(fig)
-# st.image(f, caption='Figure')
+
 
 f = open('brands.txt')
 brands = []
@@ -63,6 +63,6 @@ data = data.query(f"Car in {brands}")
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 
-# data_grouped['prev_count'] = prev_data_grouped['count']
-# data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
-# st.dataframe(data_grouped,use_container_width=True)
+data_grouped['prev_count'] = prev_data_grouped['count']
+data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
+st.dataframe(data_grouped,use_container_width=True)
