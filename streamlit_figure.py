@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from datetime import datetime
-from matplotlib import image as mpimg
 
 # st.set_page_config(layout="wide")
 with open('status.log', 'r') as logs:
@@ -42,13 +41,9 @@ for k in ax:
     k.set_xlim(0, 350000)
 
 
-plt.savefig('plots.png')
-image = mpimg.imread("plots.png")
-plt.imshow(image)
 # st.write(prev_file)
 # st.pyplot(prev_plot.get_figure())
-st.write(recent_file)
-st.pyplot(plt.show())
+st.write(fig)
 
 f = open('brands.txt')
 brands = []
