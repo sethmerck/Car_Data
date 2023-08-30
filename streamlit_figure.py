@@ -33,6 +33,7 @@ prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_d
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[1])
 
 for k in ax:
+    k.set_title('dd')
     k.set_xlabel('Mileage', fontsize = 22, labelpad=21)
     
     k.set_ylabel('Price', fontsize = 22, labelpad=21)
@@ -42,7 +43,7 @@ for k in ax:
     k.set_xlim(0, 350000)
 
 
-st.write(prev_file)
+# st.write(prev_file)
 st.pyplot(fig)
 
 
