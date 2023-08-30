@@ -71,5 +71,5 @@ data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max
 
 data_grouped['prev_count'] = prev_data_grouped['count']
 data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
-data_grouped.rename(columns={"Mean": f"{z} Mean")
+data_grouped.rename(columns={"Mean": f"{z} Mean"})
 st.dataframe(data_grouped,use_container_width=True)
