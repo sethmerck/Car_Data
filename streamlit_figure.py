@@ -34,7 +34,7 @@ plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"colo
 
 count = 0
 for k in ax:
-    if count = 0:
+    if count == 0:
         k.set_title(start_t)
     else:
         k.set_title(end_t)
@@ -45,6 +45,7 @@ for k in ax:
     k.set_ylim(0, 250000)
     
     k.set_xlim(0, 350000)
+    count+=1
 
 
 # st.write(prev_file)
