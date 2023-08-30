@@ -41,10 +41,10 @@ from PIL import Image
     
 #     k.set_xlim(0, 350000)
 
-f = open("a.png", "rb")
+f = Image.open('a.png')
 # st.write(prev_file)
 # st.pyplot(prev_plot.get_figure())
-st.write(f.read())
+st.write(f.show())
 
 # f = open('brands.txt')
 # brands = []
