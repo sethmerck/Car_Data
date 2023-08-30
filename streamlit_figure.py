@@ -40,7 +40,7 @@ from datetime import datetime
     
 #     k.set_xlim(0, 350000)
 
-f = open("a.png", "r")
+f = open("a.png", "rb")
 # st.write(prev_file)
 # st.pyplot(prev_plot.get_figure())
 st.write(f.read())
