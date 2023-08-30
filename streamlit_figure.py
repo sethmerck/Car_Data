@@ -44,7 +44,7 @@ from PIL import Image
 f = Image.open('a.png')
 # st.write(prev_file)
 # st.pyplot(prev_plot.get_figure())
-f.show()
+st.image(f, caption='Figure')
 
 # f = open('brands.txt')
 # brands = []
