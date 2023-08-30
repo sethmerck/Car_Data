@@ -43,7 +43,7 @@ from datetime import datetime
 f = open("a.png", "r")
 # st.write(prev_file)
 # st.pyplot(prev_plot.get_figure())
-st.write(f)
+st.write(f.read())
 
 # f = open('brands.txt')
 # brands = []
