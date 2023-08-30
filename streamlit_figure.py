@@ -73,5 +73,5 @@ data_grouped['prev_count'] = prev_data_grouped['count']
 data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
 data_grouped.rename(columns={"mean": f"{z} Mean", "std": f"{z} STD Dev", "min": f"{z} Min", "max": f"{z} Max", "count": f"{z} Count", "prev_count": f"{w} Count", "diff": "Count_Difference"}, inplace=True)
 st.write(" ")
-st.write("Breakdown of Make Data")
+st.title("Breakdown of Make Data")
 st.dataframe(data_grouped,use_container_width=True)
