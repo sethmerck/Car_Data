@@ -41,11 +41,11 @@ for k in ax:
     k.set_xlim(0, 350000)
 
 
-# plt.savefig('plots.png')
+plt.savefig('plots.png')
 # st.write(prev_file)
 # st.pyplot(prev_plot.get_figure())
 st.write(recent_file)
-st.pyplot(fig=fig)
+st.pyplot(fig='plots.png')
 
 f = open('brands.txt')
 brands = []
