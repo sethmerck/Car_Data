@@ -40,10 +40,10 @@ from datetime import datetime
     
 #     k.set_xlim(0, 350000)
 
-
+f = open("a.png", "r")
 # st.write(prev_file)
 # st.pyplot(prev_plot.get_figure())
-st.write('a.png')
+st.write(f)
 
 # f = open('brands.txt')
 # brands = []
