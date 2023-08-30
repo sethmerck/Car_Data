@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from datetime import datetime
+from PIL import Image
 
 # st.set_page_config(layout="wide")
 # with open('status.log', 'r') as logs:
