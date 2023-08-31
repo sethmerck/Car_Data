@@ -6,7 +6,7 @@ The Python scripts I used to collect and clean used car data are located in this
 
 CSV files in this folder were then used to create Tableau a dashboard located <a href="https://public.tableau.com/app/profile/sethmerck/viz/GeorgiaUsedCarData/Dashboard1">here.</a>
 
-I'm also currently working on a way to automatically update my data visualizations using Streamlit located <a href="https://carsga.streamlit.app/">here.</a>
+I'm also currently working on a way to automatically update my data visualizations using Streamlit located <a href="https://carsga.streamlit.app/">here.</a> The code used for generating these visualizations is located in the "streamlit_figure.py" file in this repo.
 
 ## How It's Made: 
 
