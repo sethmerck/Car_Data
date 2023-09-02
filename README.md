@@ -4,7 +4,7 @@ This is a personal project to aid in my search of buying another used car and to
 
 The Python scripts I used to collect and clean used car data are located in this repository. I then compiled these scripts into one script "main.py" which automatically runs once every few days using GitHub Actions. The output of this python script is a cleaned CSV file containing all relevant car listings in the state of Georgia from cars.com. CSV files are located in the "working_dataset" directory.
 
-CSV files in this folder were can be used to create a Tableau a dashboard located <a href="https://public.tableau.com/app/profile/sethmerck/viz/GeorgiaUsedCarData/Dashboard1">here.</a> However, I'm using Streamlit to create data visualizations that update automatically as new data comes in, located <a href="https://carsga.streamlit.app/">here.</a> The code used for generating these visualizations is located in the "streamlit_figure.py" file in this repo.
+CSV files in this folder can be used to create a Tableau a dashboard located <a href="https://public.tableau.com/app/profile/sethmerck/viz/GeorgiaUsedCarData/Dashboard1">here.</a> However, I'm using Streamlit to create data visualizations that update automatically as new data comes in, located <a href="https://carsga.streamlit.app/">here.</a> The code used for generating these visualizations is located in the "streamlit_figure.py" file in this repo.
 
 ## How It's Made: 
 
