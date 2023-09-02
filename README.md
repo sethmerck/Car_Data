@@ -18,4 +18,4 @@ Workflow folder and main.py file use Github Actions to periodically run this cod
 
 ## Results:
 
-I found quite a few reasonably valued cars in my area that I'm interested in. I also found which makes were most widely resold in the state (Honda, Chevrolet, Nissan, Ford, Toyota).
+I found quite a few reasonably valued cars in my area that I'm interested in. I also found which makes were most widely resold in the state (Honda, Chevrolet, Nissan, Ford, Toyota). The next few weeks will be spent discovering any new insights to be found in my datasets.
