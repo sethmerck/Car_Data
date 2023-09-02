@@ -19,8 +19,3 @@ Workflow folder and main.py file use Github Actions to periodically run this cod
 ## Results:
 
 I found quite a few reasonably valued cars in my area that I'm interested in. I also found which makes were most widely resold in the state (Honda, Chevrolet, Nissan, Ford, Toyota).
-
-
-## Optimizations:
-
-Currently working on using GitHub Actions to automate data pipeline. Will produce updated csv file at regular time intervals. Link Streamlit or Tableau dashboard to this repo to have the most updated data shown on dashboard. Eventually once enough time has passed, create visualizations showing the change in dataset over time and observe any trends if present.
