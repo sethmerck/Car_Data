@@ -70,10 +70,8 @@ data = data.explode('Car')
 prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
-## box plot #
+## price box plot #
 a, b = plt.subplots(1,2, figsize=(9,4))
-# plt.rcParams["figure.figsize"] = [10.00, 3.50]
-# plt.rcParams["figure.autolayout"] = True
 
 sorted_prev_data = prev_data[prev_data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
@@ -95,6 +93,34 @@ for k in b:
     k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
     count+=1
 a.suptitle("Price Distribution Model of Five Most Common Car Makes")
+# labels = box.get_xticklabels(which='major')
+
+# counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
+# box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
+
+st.pyplot(a)
+
+## mileage box plot ##
+a, b = plt.subplots(1,2, figsize=(9,4))
+
+sorted_box = sorted_prev_data.boxplot(column='Mileage', by="Car", rot=15, ax=b[0])
+box = sorted_data.boxplot(column='Mileage', by="Car", rot=15, ax=b[1])
+
+count = 0
+for k in b:
+    if count == 0:
+        k.set_title(w)
+        counts = sorted_prev_data.groupby(by="Car")["Mileage"].count().tolist()
+    else:
+        k.set_title(z)
+        counts = sorted_data.groupby(by="Car")["Mileage"].count().tolist()
+    k.set_xlabel('Car Make', fontsize = 14, labelpad=14)
+    
+    k.set_ylabel('Mileage', fontsize = 14, labelpad=14)
+    labels = k.get_xticklabels(which='major')
+    k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
+    count+=1
+a.suptitle("Mileage Distribution Model of Five Most Common Car Makes")
 # labels = box.get_xticklabels(which='major')
 
 # counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
