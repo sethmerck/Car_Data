@@ -54,6 +54,7 @@ for k in ax:
 # st.write(prev_file)
 st.pyplot(fig)
 
+## sorts by make data ##
 
 f = open('brands.txt')
 brands = []
@@ -71,7 +72,7 @@ data = data.query(f"Car in {brands}")
 
 ## box plot ##
 
-a, v = plt.subplots()
+a, v = plt.subplots(2,2)
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
 box = sorted_data.boxplot(column='Price', by="Car", rot=0, ax=v)
 a.suptitle(z)
