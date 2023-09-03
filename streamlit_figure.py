@@ -40,7 +40,7 @@ count = 0
 for k in ax:
     if count == 0:
         counts = data["Price"].count().tolist()
-        k.set_title(f"{w}\n{counts[0]}")
+        k.set_title(f"{w}\nn = {counts}")
     else:
         k.set_title(z)
     k.set_xlabel('Mileage', fontsize = 18, labelpad=18)
