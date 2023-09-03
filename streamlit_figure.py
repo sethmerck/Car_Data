@@ -69,6 +69,8 @@ data = data.explode('Car')
 prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
+## box plot ##
+
 a, v = plt.subplots()
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
 box = sorted_data.boxplot(column='Price', by="Car", rot=0, ax=v)
@@ -77,7 +79,10 @@ labels = box.get_xticklabels(which='major')
 
 counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
 box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n\n n = {counts[i]}" for i, v in enumerate(labels)])
+box.set_title('dfdf')
 st.pyplot(a)
+
+## stat_table ## 
 
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
