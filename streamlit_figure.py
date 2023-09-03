@@ -85,16 +85,16 @@ for k in b:
         k.set_title(w)
     else:
         k.set_title(z)
-    k.set_xlabel('Mileage', fontsize = 22, labelpad=21)
+    k.set_xlabel('Car Make', fontsize = 22, labelpad=21)
     
     k.set_ylabel('Price', fontsize = 22, labelpad=21)
     count+=1
-# a.suptitle(z)
+a.suptitle("Price Distribution Model of Five Most Common Car Makes")
 # labels = box.get_xticklabels(which='major')
 
 # counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
 # box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n\n n = {counts[i]}" for i, v in enumerate(labels)])
-# box.set_xlabel('\nCar Make')
+
 st.pyplot(a)
 
 ## stat_table ## 
