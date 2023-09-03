@@ -75,7 +75,7 @@ Q1 = sorted_data['Price'].quantile(0.25)
 Q3 = sorted_data['Price'].quantile(0.75)
 IQR = Q3 - Q1    #IQR is interquartile range. 
 
-filter = (sorted_data['AVG'] >= Q1 - 1.5 * IQR) & (sorted_data['AVG'] <= Q3 + 1.5 *IQR)
+filter = (sorted_data['Price'] >= Q1 - 1.5 * IQR) & (sorted_data['Price'] <= Q3 + 1.5 *IQR)
 sorted_data.loc[filter]  
 
 box = sorted_data.boxplot(column=['Price'], by=["Car"], rot=45)
