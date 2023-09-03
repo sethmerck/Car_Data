@@ -70,7 +70,6 @@ data = data.explode('Car')
 prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
-w, z = st.select_slider('Date Collected',options=lines, value=[start_t,end_t])
 ## price box plot #
 a, b = plt.subplots(1,2, figsize=(9,4))
 
