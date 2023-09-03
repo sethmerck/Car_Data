@@ -70,7 +70,7 @@ prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
 # data = data.drop(data[data["Price"]>400000].index)
-sorted_data = data[data['Car'].str.contains(["Honda", "Chevrolet", "Nissan", "Ford", "Toyota"])]
+sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
 box = sorted_data.boxplot(column=['Price'], by=["Car"], rot=45)
 st.pyplot(box.plot())
 
