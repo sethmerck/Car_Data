@@ -43,7 +43,7 @@ count = 0
 for k in ax:
     if count == 0:
         counts = prev_data["Price"].count().tolist()
-        k.set_title(f"{w}\nn = {counts}")
+        k.set_title(f"{w}\n\nn = {counts}")
     else:
         counts = data["Price"].count().tolist()
         k.set_title(f"{z}\nn = {counts}")
