@@ -69,6 +69,11 @@ data = data.explode('Car')
 prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
+# data = data.drop(data[data["Price"]>400000].index)
+
+box = data.boxplot(column=['Price'], by=["Car"])
+st.pyplot(box.plot())
+
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 
@@ -78,8 +83,3 @@ data_grouped.rename(columns={"mean": f"{z} Mean", "std": f"{z} STD Dev", "min": 
 st.write(" ")
 st.title("Breakdown of Make Data")
 st.dataframe(data_grouped,use_container_width=True)
-
-# data = data.drop(data[data["Price"]>400000].index)
-
-# box = data.boxplot(column=['Price'])
-# st.pyplot(box.plot())
