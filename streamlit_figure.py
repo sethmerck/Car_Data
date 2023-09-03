@@ -70,8 +70,14 @@ prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
 
-sorted_data = data #.drop(data[data["Price"]>300000].index)
-sorted_data = sorted_data[sorted_data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
+sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
+Q1 = ['Price'].quantile(0.25)
+Q3 = df['Price'].quantile(0.75)
+IQR = Q3 - Q1    #IQR is interquartile range. 
+
+filter = (sorted_data['AVG'] >= Q1 - 1.5 * IQR) & (sorted_data['AVG'] <= Q3 + 1.5 *IQR)
+sorted_data.loc[filter]  
+
 box = sorted_data.boxplot(column=['Price'], by=["Car"], rot=45)
 st.pyplot(box.plot())
 
