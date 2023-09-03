@@ -7,6 +7,7 @@ import seaborn as sns
 import numpy as np
 from datetime import datetime
 
+st.header('Breakdown of Listing Data from cars.com', divider='rainbow')
 
 f = open('log.txt', 'r')
 num = int(f.read())
