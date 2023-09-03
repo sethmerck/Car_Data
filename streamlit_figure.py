@@ -83,11 +83,15 @@ count = 0
 for k in b:
     if count == 0:
         k.set_title(w)
+        counts = sorted_prev_data.groupby(by="Car")["Price"].count().tolist()
     else:
         k.set_title(z)
+        counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
     k.set_xlabel('Car Make', fontsize = 22, labelpad=21)
     
     k.set_ylabel('Price', fontsize = 22, labelpad=21)
+    labels = k.get_xticklabels(which='major')
+    k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n\n n = {counts[i]}" for i, v in enumerate(labels)])
     count+=1
 a.suptitle("Price Distribution Model of Five Most Common Car Makes")
 # labels = box.get_xticklabels(which='major')
