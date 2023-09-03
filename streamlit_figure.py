@@ -26,7 +26,7 @@ prev_data = pd.read_csv(f'working_dataset/{prev_file}')
 data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data file
 
 prev_data = prev_data.drop(prev_data[prev_data["Mileage"]<5].index)
-data = data.drop(data[data["Mileage"]<5].index)
+data = data.drop(data[data["Mileage"]<100].index)
 
 
 plt.rcParams["figure.figsize"] = [7.00, 3.50]
