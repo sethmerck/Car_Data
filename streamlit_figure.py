@@ -71,7 +71,7 @@ prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
 ## box plot #
-a, b = plt.subplots(1,2, figsize=(8,2))
+a, b = plt.subplots(1,2, figsize=(7,3))
 # plt.rcParams["figure.figsize"] = [10.00, 3.50]
 # plt.rcParams["figure.autolayout"] = True
 
