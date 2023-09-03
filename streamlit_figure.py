@@ -93,7 +93,7 @@ for k in b:
     labels = k.get_xticklabels(which='major')
     k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
     count+=1
-a.suptitle("Price Distribution Model of Five Most Common Car Makes", fontsize=18)
+a.suptitle("Price Distribution Model of Five Most Common Car Makes", fontsize=16)
 # labels = box.get_xticklabels(which='major')
 
 # counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
@@ -121,7 +121,7 @@ for k in b:
     labels = k.get_xticklabels(which='major')
     k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
     count+=1
-a.suptitle("Mileage Distribution Model of Five Most Common Car Makes")
+a.suptitle("Mileage Distribution Model of Five Most Common Car Makes", fontsize=16)
 # labels = box.get_xticklabels(which='major')
 
 # counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
