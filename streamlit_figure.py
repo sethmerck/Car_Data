@@ -71,8 +71,8 @@ data = data.query(f"Car in {brands}")
 
 
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
-Q1 = ['Price'].quantile(0.25)
-Q3 = df['Price'].quantile(0.75)
+Q1 = sorted_data['Price'].quantile(0.25)
+Q3 = sorted_data['Price'].quantile(0.75)
 IQR = Q3 - Q1    #IQR is interquartile range. 
 
 filter = (sorted_data['AVG'] >= Q1 - 1.5 * IQR) & (sorted_data['AVG'] <= Q3 + 1.5 *IQR)
