@@ -7,8 +7,12 @@ import seaborn as sns
 import numpy as np
 from datetime import datetime
 
+url = "https://github.com/sethmerck/Used_Cars_in_GA"
 st.header('Breakdown of Used Car Listing Data in GA\nData obtained from cars.com', divider='gray')
 st.write("")
+
+st.write("check out this [link](%s)" % url)
+st.markdown("check out this [link](%s)" % url)
 
 f = open('log.txt', 'r')
 num = int(f.read())
