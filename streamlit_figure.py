@@ -32,6 +32,7 @@ data = data.drop(data[data["Mileage"]<100].index)
 plt.rcParams["figure.figsize"] = [7.00, 3.50]
 plt.rcParams["figure.autolayout"] = True
 fig, ax = plt.subplots(1, 2)
+fig.suptitle("Price vs. Mileage Regression Among All Listings")
 prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[0])
 plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[1])
 
