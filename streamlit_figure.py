@@ -8,7 +8,7 @@ import numpy as np
 from datetime import datetime
 
 url = "https://github.com/sethmerck/Used_Cars_in_GA"
-st.header('Breakdown of Used Car Listing Data in GA\nData obtained from cars.com \n [GitHub Repo](%s)' % url, divider='gray')
+st.header('Breakdown of Used Car Listing Data in GA\nData obtained from cars.com\n[GitHub Repo](%s)' % url, divider='gray')
 st.write("")
 
 f = open('log.txt', 'r')
