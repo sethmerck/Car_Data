@@ -41,9 +41,9 @@ for k in ax:
         k.set_title(w)
     else:
         k.set_title(z)
-    k.set_xlabel('Mileage', fontsize = 22, labelpad=21)
+    k.set_xlabel('Mileage', fontsize = 18, labelpad=18)
     
-    k.set_ylabel('Price', fontsize = 22, labelpad=21)
+    k.set_ylabel('Price', fontsize = 18, labelpad=18)
     
     k.set_ylim(0, 250000)
     
