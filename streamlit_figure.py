@@ -7,7 +7,7 @@ import seaborn as sns
 import numpy as np
 from datetime import datetime
 
-st.header('Breakdown of Listing Data from cars.com', divider='rainbow')
+st.header('Breakdown of Listing Data from cars.com', divider='red')
 st.write("")
 
 f = open('log.txt', 'r')
