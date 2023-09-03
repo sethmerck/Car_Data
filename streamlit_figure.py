@@ -71,11 +71,11 @@ data = data.query(f"Car in {brands}")
 
 
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
-box = sorted_data.boxplot(column='Mileage', by="Car", rot=45)
+box = sorted_data.boxplot(column='Price', by="Car", rot=45)
 
 labels = box.get_xticklabels(which='major')
 
-box.set_xticks(ticks=[1,2,3,4,5], labels=[j for j in labels])
+box.set_xticks(ticks=[1,2,3,4,5], labels=labels)
 st.pyplot(box.plot())
 
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
