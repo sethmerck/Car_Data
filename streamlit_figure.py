@@ -72,7 +72,7 @@ prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
 ## price box plot #
-a, b = plt.subplots(1,2, figsize=(9,4))
+a, b = plt.subplots(1,2, figsize=(10,5))
 
 sorted_prev_data = prev_data[prev_data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
