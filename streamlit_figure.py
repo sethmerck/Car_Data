@@ -73,8 +73,11 @@ data = data.query(f"Car in {brands}")
 ## box plot #
 
 a, b = plt.subplots(1,2)
+
+sorted_prev_data = prev_data[prev_data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
-box = sorted_data.boxplot(column='Price', by="Car", rot=0, ax=b[0])
+sorted_box = sorted_prev_data.boxplot(column='Price', by="Car", rot=0, ax=b[0])
+box = sorted_data.boxplot(column='Price', by="Car", rot=0, ax=b[1])
 a.suptitle(z)
 labels = box.get_xticklabels(which='major')
 
