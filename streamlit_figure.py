@@ -78,12 +78,23 @@ sorted_prev_data = prev_data[prev_data['Car'].str.contains("Honda|Chevrolet|Niss
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
 sorted_box = sorted_prev_data.boxplot(column='Price', by="Car", rot=0, ax=b[0])
 box = sorted_data.boxplot(column='Price', by="Car", rot=0, ax=b[1])
-a.suptitle(z)
-labels = box.get_xticklabels(which='major')
 
-counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
-box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n\n n = {counts[i]}" for i, v in enumerate(labels)])
-box.set_xlabel('\nCar Make')
+count = 0
+for k in b:
+    if count == 0:
+        k.set_title(w)
+    else:
+        k.set_title(z)
+    k.set_xlabel('Mileage', fontsize = 22, labelpad=21)
+    
+    k.set_ylabel('Price', fontsize = 22, labelpad=21)
+    count+=1
+# a.suptitle(z)
+# labels = box.get_xticklabels(which='major')
+
+# counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
+# box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n\n n = {counts[i]}" for i, v in enumerate(labels)])
+# box.set_xlabel('\nCar Make')
 st.pyplot(a)
 
 ## stat_table ## 
