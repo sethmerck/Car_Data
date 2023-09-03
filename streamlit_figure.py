@@ -74,8 +74,9 @@ sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota"
 box = sorted_data.boxplot(column='Price', by="Car", rot=45, ax=v)
 
 labels = box.get_xticklabels(which='major')
+labels = [str(i)[13:-4] for i in labels]
 counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
-box.set_xticks(ticks=[1,2,3,4,5], labels=[str(i) for i in labels])
+box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{v} {counts[i]}" for i, v in enumerate(labels)])
 st.pyplot(a)
 
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
