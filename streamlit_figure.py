@@ -96,7 +96,7 @@ for k in b:
         k.set_title(z)
         counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
     k.set_xlabel('Car Make', fontsize = 14, labelpad=14)
-    
+    k.set_ylim(0, 250000)
     k.set_ylabel('Price', fontsize = 14, labelpad=14)
     labels = k.get_xticklabels(which='major')
     k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
