@@ -77,7 +77,7 @@ a, b = plt.subplots(1,2, figsize=(9,4))
 
 sorted_prev_data = prev_data[prev_data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
 sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
-sorted_box = sorted_prev_data.boxplot(column='Price', by="Car", rot=0, ax=b[0])
+sorted_box = sorted_prev_data.boxplot(column='Price', by="Car", rot=15, ax=b[0])
 box = sorted_data.boxplot(column='Price', by="Car", rot=15, ax=b[1])
 
 count = 0
