@@ -75,7 +75,7 @@ box = sorted_data.boxplot(column=['Price'], by=["Car"], rot=45)
 
 labels = box.get_xticklabels(which='major')
 
-box.set_xticks(ticks=[1,2,3,4,5], labels=[str(j) for j in labels])
+box.set_xticks(ticks=[1,2,3,4,5], labels=[str(j)[13:-4] for j in labels])
 st.pyplot(box.plot())
 
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
