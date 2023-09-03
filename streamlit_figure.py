@@ -53,6 +53,7 @@ for k in ax:
 
 # st.write(prev_file)
 st.pyplot(fig)
+st.write("")
 
 ## sorts by make data ##
 
