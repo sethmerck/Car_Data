@@ -71,7 +71,7 @@ data = data.query(f"Car in {brands}")
 
 # data = data.drop(data[data["Price"]>400000].index)
 
-box = data.boxplot(column=['Price'], by=["Car"])
+box = data.boxplot(column=['Price'], by=["Car"], rot=45)
 st.pyplot(box.plot())
 
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
