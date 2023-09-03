@@ -27,8 +27,12 @@ data = pd.read_csv(f'working_dataset/{recent_file}') #path folder of the data fi
 
 prev_data = prev_data.drop(prev_data[prev_data["Mileage"]<5].index)
 data = data.drop(data[data["Mileage"]<5].index)
+
+data = data.drop(data[data["Price"]>400000].index)
+
 box = data.boxplot(column=['Price'])
 st.pyplot(box.plot())
+
 plt.rcParams["figure.figsize"] = [7.00, 3.50]
 plt.rcParams["figure.autolayout"] = True
 fig, ax = plt.subplots(1, 2)
