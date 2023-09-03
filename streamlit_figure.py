@@ -102,7 +102,7 @@ a.suptitle("Price Distribution Model of Five Most Common Car Makes\n", fontsize=
 st.pyplot(a)
 
 ## mileage box plot ##
-a, b = plt.subplots(1,2, figsize=(9,4))
+a, b = plt.subplots(1,2, figsize=(10,5))
 
 sorted_box = sorted_prev_data.boxplot(column='Mileage', by="Car", rot=15, ax=b[0])
 box = sorted_data.boxplot(column='Mileage', by="Car", rot=15, ax=b[1])
