@@ -72,7 +72,7 @@ data = data.query(f"Car in {brands}")
 
 ## box plot #
 a, b = plt.subplots(1,2)
-plt.rcParams["figure.figsize"] = [7.00, 3.50]
+plt.rcParams["figure.figsize"] = [10.00, 3.50]
 plt.rcParams["figure.autolayout"] = True
 
 sorted_prev_data = prev_data[prev_data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
