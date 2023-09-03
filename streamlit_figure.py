@@ -91,7 +91,7 @@ for k in b:
     
     k.set_ylabel('Price', fontsize = 22, labelpad=21)
     labels = k.get_xticklabels(which='major')
-    k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n\n n = {counts[i]}" for i, v in enumerate(labels)])
+    k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
     count+=1
 a.suptitle("Price Distribution Model of Five Most Common Car Makes")
 # labels = box.get_xticklabels(which='major')
