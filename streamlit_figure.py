@@ -74,7 +74,7 @@ sorted_data = data[data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota"
 box = sorted_data.boxplot(column=['Price'], by=["Car"], rot=45)
 
 i = box.get_xticklabels(which='major')
-st.write(i)
+st.write(type(i))
 box.set_xticks(ticks=[1,2,3,4,5], labels=['1','2','3','4','5'])
 st.pyplot(box.plot())
 
