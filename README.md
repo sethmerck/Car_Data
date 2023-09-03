@@ -18,4 +18,6 @@ Workflow folder and main.py file use Github Actions to periodically run this cod
 
 ## Results:
 
-I found quite a few reasonably valued cars in my area that I'm interested in. I also found which makes were most widely resold in the state (Honda, Chevrolet, Nissan, Ford, Toyota). Along with this, I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car makes (Honda, Nissan, Toyota). The next few weeks will be spent discovering any new insights to be found in my datasets.
+I found quite a few reasonably valued cars in my area that I'm interested in. I also found which makes were most widely resold in the state (Honda, Chevrolet, Nissan, Ford, Toyota). 
+
+Along with this, I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car makes (Honda, Nissan, Toyota). However, I did not find much difference in the mileage distributions for listings of these five brands. The next few weeks will be spent discovering any new insights to be found in my datasets as more data comes in.
