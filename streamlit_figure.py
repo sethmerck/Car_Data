@@ -49,7 +49,7 @@ for k in ax:
         k.set_title(f"Data Collected: {w}\n\nn = {counts}")
     else:
         counts = data["Price"].count().tolist()
-        k.set_title(f"{z}\n\nn = {counts}")
+        k.set_title(f"Data Collected: {z}\n\nn = {counts}")
     k.set_xlabel('Mileage', fontsize = 18, labelpad=18)
     
     k.set_ylabel('Price', fontsize = 18, labelpad=18)
@@ -91,10 +91,10 @@ box = sorted_data.boxplot(column='Price', by="Car", rot=15, ax=b[1])
 count = 0
 for k in b:
     if count == 0:
-        k.set_title(w)
+        k.set_title(f"Data Collected: {w}")
         counts = sorted_prev_data.groupby(by="Car")["Price"].count().tolist()
     else:
-        k.set_title(z)
+        k.set_title(f"Data Collected: {z}")
         counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
     k.set_xlabel('Car Make', fontsize = 14, labelpad=14)
     k.set_ylim(0, 250000)
@@ -119,10 +119,10 @@ box = sorted_data.boxplot(column='Mileage', by="Car", rot=15, ax=b[1])
 count = 0
 for k in b:
     if count == 0:
-        k.set_title(w)
+        k.set_title(f"Data Collected: {w}")
         counts = sorted_prev_data.groupby(by="Car")["Mileage"].count().tolist()
     else:
-        k.set_title(z)
+        k.set_title(f"Data Collected: {z}")
         counts = sorted_data.groupby(by="Car")["Mileage"].count().tolist()
     k.set_xlabel('Car Make', fontsize = 14, labelpad=14)
     k.set_ylim(-10000, 350000)
