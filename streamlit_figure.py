@@ -9,7 +9,6 @@ from datetime import datetime
 
 url = "https://github.com/sethmerck/Used_Cars_in_GA"
 st.header('Breakdown of Used Car Listing Data in GA\nData obtained from cars.com; [GitHub Repo](%s)' % url, divider='gray')
-st.write("[GitHub Repo](%s)" % url)
 st.write("")
 
 f = open('log.txt', 'r')
