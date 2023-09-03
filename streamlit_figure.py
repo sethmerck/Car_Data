@@ -39,10 +39,11 @@ plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"colo
 count = 0
 for k in ax:
     if count == 0:
-        counts = data["Price"].count().tolist()
+        counts = prev_data["Price"].count().tolist()
         k.set_title(f"{w}\nn = {counts}")
     else:
-        k.set_title(z)
+        counts = data["Price"].count().tolist()
+        k.set_title(f"{z}\nn = {counts}")
     k.set_xlabel('Mileage', fontsize = 18, labelpad=18)
     
     k.set_ylabel('Price', fontsize = 18, labelpad=18)
