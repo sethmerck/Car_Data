@@ -8,6 +8,7 @@ import numpy as np
 from datetime import datetime
 
 st.header('Breakdown of Listing Data from cars.com', divider='rainbow')
+st.write("")
 
 f = open('log.txt', 'r')
 num = int(f.read())
