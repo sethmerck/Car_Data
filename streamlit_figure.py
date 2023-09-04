@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from datetime import datetime
-from streamlit_float import *
 
 url = "https://github.com/sethmerck/Used_Cars_in_GA"
 st.header('Breakdown of Used Car Listing Data in GA\nData obtained from cars.com\n\n[GitHub Repo](%s)' % url, divider='gray')
