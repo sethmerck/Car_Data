@@ -5,4 +5,4 @@ matplotlib
 streamlit
 seaborn
 numpy
-streamlit-float==0.2.7
+streamlit-float
