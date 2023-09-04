@@ -23,7 +23,7 @@ end_t = lines[-1]
 
 
 w, z = st.select_slider('Date Collected',options=lines, value=[start_t,end_t])
-st.markdown(f'''<div class="floating">{w, z}</div>''', unsafe_allow_html=True)
+st.markdown(f'''<div class="floating">{(w, z)}</div>''', unsafe_allow_html=True)
 
 prev_file = f"test_actions{lines.index(w)+1}.csv"
 recent_file = f"test_actions{lines.index(z) + 1}.csv"
