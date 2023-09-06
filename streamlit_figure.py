@@ -13,7 +13,7 @@ st.write("")
 
 f = open('log.txt', 'r')
 num = int(f.read())
-# st.set_page_config(layout="wide")
+
 with open('status.log', 'r') as logs:
     lines = logs.readlines()[(-1 * num):]
     lines = [datetime.strptime(i[:10], '%Y-%m-%d').date() for i in lines]
@@ -23,7 +23,7 @@ end_t = lines[-1]
 
 
 w, z = st.select_slider('Date Collected',options=lines, value=[start_t,end_t])
-# st.markdown(f'''<div class="floating">{(w, z)}</div>''', unsafe_allow_html=True)
+
 
 prev_file = f"test_actions{lines.index(w)+1}.csv"
 recent_file = f"test_actions{lines.index(z) + 1}.csv"
@@ -63,7 +63,7 @@ for k in ax:
     count+=1
 
 
-# st.write(prev_file)
+
 st.pyplot(fig)
 st.write("")
 
