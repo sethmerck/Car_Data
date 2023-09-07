@@ -141,6 +141,8 @@ a.suptitle("Mileage Distribution Model of Five Most Common Car Makes\n", fontsiz
 
 st.pyplot(a)
 
+st.caption('This is a string that explains something above.')
+
 ## stat_table ## 
 
 # prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
