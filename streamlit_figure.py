@@ -141,7 +141,8 @@ a.suptitle("Mileage Distribution Model of Five Most Common Car Makes\n", fontsiz
 
 st.pyplot(a)
 
-st.caption('This is a string that explains something above.')
+st.write("")
+st.caption('Brief description and interpretation of results.')
 
 ## stat_table ## 
 
