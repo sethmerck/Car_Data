@@ -142,10 +142,10 @@ a.suptitle("Mileage Distribution Model of Five Most Common Car Makes\n", fontsiz
 st.pyplot(a)
 
 st.write("")
-st.caption("I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car 
+st.caption("""I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car 
            makes (Honda, Nissan, Toyota). However, I did not find much difference in the mileage distributions for listings of these five brands. The next few weeks will be spent 
            discovering any new insights to be found in my datasets as more data comes in. As time progresses and my dataset grows, I'd like the ability to observe any 
-           broader trends (such as noticeable changes in price) that may be occurring within my local used car market.")
+           broader trends (such as noticeable changes in price) that may be occurring within my local used car market.""")
 
 ## stat_table ## 
 
