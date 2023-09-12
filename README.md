@@ -1,6 +1,6 @@
 # READ ME
 
-This is a personal project to aid in my search of buying another used car and to understand the trends in the used car market in my local area. 
+This is a project to aid in my search of buying another used car and to understand the trends in the used car market in my local area. 
 
 The Python scripts I used to collect and clean used car data are located in this repository. I then compiled these scripts into one script "main.py" which automatically runs once every few days using GitHub Actions. The output of this python script is a cleaned CSV file containing all relevant car listings in the state of Georgia from cars.com. CSV files are located in the "working_dataset" directory.
 
