@@ -55,10 +55,10 @@ box = data_merged.boxplot(column='Price', by="Zip", rot=15, ax=b[1])
 count = 0
 for k in b:
     if count == 0:
-        k.set_title(f"Data Collected before")
+        k.set_title(f"Data Collected: {w}")
         counts = prev_data_merged.groupby(by="Zip")["Price"].count().tolist()
     else:
-        k.set_title(f"Data Collected recent")
+        k.set_title(f"Data Collected: {z}")
         counts = data_merged.groupby(by="Zip")["Price"].count().tolist()
     k.set_xlabel('Zip', fontsize = 14, labelpad=14)
     k.set_ylim(0, 250000)
