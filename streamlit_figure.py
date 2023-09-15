@@ -37,6 +37,42 @@ data = data.drop(data[data["Mileage"]<100].index)
 prev_data = prev_data.drop(prev_data[prev_data["Price"]<100].index)
 data = data.drop(data[data["Price"]<100].index)
 
+prev_data_grouped = prev_data.groupby(['Zip'], as_index=False).size()
+data_grouped = data.groupby(['Zip'], as_index=False).size()
+
+prev_data_merged = pd.merge(prev_data, prev_data_grouped, on='Zip', how='left') 
+data_merged = pd.merge(data, data_grouped, on='Zip', how='left')
+
+prev_data_merged = prev_data_merged[data_merged['size'] > 200]
+data_merged = data_merged[data_merged['size'] > 200]
+
+## price box plot #
+a, b = plt.subplots(1,2, figsize=(10,5))
+
+prev_box = prev_data_merged.boxplot(column='Price', by="Zip", rot=15, ax=b[0])
+box = data_merged.boxplot(column='Price', by="Zip", rot=15, ax=b[1])
+
+count = 0
+for k in b:
+    if count == 0:
+        k.set_title(f"Data Collected before")
+        counts = prev_data_merged.groupby(by="Zip")["Price"].count().tolist()
+    else:
+        k.set_title(f"Data Collected recent")
+        counts = data_merged.groupby(by="Zip")["Price"].count().tolist()
+    k.set_xlabel('Zip', fontsize = 14, labelpad=14)
+    k.set_ylim(0, 250000)
+    k.set_ylabel('Price', fontsize = 14, labelpad=14)
+    labels = k.get_xticklabels(which='major')
+    k.set_xticks(ticks=[i for i in range(1, len(counts)+1)], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)], fontsize=8)
+    count+=1
+a.suptitle("Price Distribution Model of Zip Codes With Over 200 Listings\n", fontsize=16)
+# labels = box.get_xticklabels(which='major')
+
+# counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
+# box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
+
+st.pyplot(a)
 
 plt.rcParams["figure.figsize"] = [7.00, 3.50]
 plt.rcParams["figure.autolayout"] = True
