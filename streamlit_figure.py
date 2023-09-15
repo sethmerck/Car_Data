@@ -43,7 +43,7 @@ data_grouped = data.groupby(['Zip'], as_index=False).size()
 prev_data_merged = pd.merge(prev_data, prev_data_grouped, on='Zip', how='left') 
 data_merged = pd.merge(data, data_grouped, on='Zip', how='left')
 
-prev_data_merged = prev_data_merged[data_merged['size'] > 200]
+prev_data_merged = prev_data_merged[prev_data_merged['size'] > 200]
 data_merged = data_merged[data_merged['size'] > 200]
 
 ## price box plot #
