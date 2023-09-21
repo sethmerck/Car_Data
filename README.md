@@ -26,4 +26,4 @@ The next few weeks will be spent discovering any new insights to be found in my 
 
 ## Optimizations:
 
-Improve layout of data presentation within Streamlit. Generate more descriptive statistics based on regional (zip code or zip code clusters) within Georgia.
+Improve layout of data presentation within Streamlit. Generate more descriptive statistics based on regional (zip code or zip code clusters) within Georgia. Consolidate chunks of code into more readable functions.
