@@ -72,26 +72,28 @@ if __name__ == "__main__":
                         if a['href'].endswith("?attribution_type=se_rp"):
                             break
                         else:
-                            if new_used[count].get_text().strip().endswith('Certified'):
-                                continue
-                            elif new_used[count].get_text().strip() == 'Used':
-                                try:
-                                    soup_dict['Zip'] = line.strip()
-                                    soup_dict['Car'] = a.get_text().strip()
-                                    soup_dict['Price'] = prices[price_count].get_text().strip()
-                                    soup_dict['Mileage'] = miles[miles_count].get_text().strip()
-                                    soup_dict['Link'] = "https://www.cars.com" + a['href']
-                                    # soup_dict[a.get_text().strip()] = [prices[price_count].get_text().strip(), miles[miles_count].get_text().strip()]
-                                    miles_count += 1
+                            try:
+                                if new_used[count].get_text().strip().endswith('Certified'):
+                                    continue
+                                elif new_used[count].get_text().strip() == 'Used':
+                                    try:
+                                        soup_dict['Zip'] = line.strip()
+                                        soup_dict['Car'] = a.get_text().strip()
+                                        soup_dict['Price'] = prices[price_count].get_text().strip()
+                                        soup_dict['Mileage'] = miles[miles_count].get_text().strip()
+                                        soup_dict['Link'] = "https://www.cars.com" + a['href']
+                                        # soup_dict[a.get_text().strip()] = [prices[price_count].get_text().strip(), miles[miles_count].get_text().strip()]
+                                        miles_count += 1
+                                        price_count += 1
+                                        count+=1
+                                    except IndexError:
+                                        print('REEEEEEEEEEEEEEEEe')
+                                        print("")
+                                else:
                                     price_count += 1
                                     count+=1
-                                except IndexError:
-                                    print('REEEEEEEEEEEEEEEEe')
-                                    print("")
-                            else:
-                                price_count += 1
-                                count+=1
-                                
+                            except IndexError:
+                                continue
                         if len(soup_dict) == 0:
                             zip_dict.append({'Zip': line.strip(), 'Car': '', 'Price': '', 'Mileage': '', 'Link': ''})
                         else:
@@ -116,23 +118,26 @@ if __name__ == "__main__":
                     if a['href'].endswith("?attribution_type=se_rp"):
                         break
                     else:
-                        if new_used[count].get_text().strip() == 'Used':
-                            try:
-                                soup_dict['Zip'] = line.strip()
-                                soup_dict['Car'] = a.get_text().strip()
-                                soup_dict['Price'] = prices[price_count].get_text().strip()
-                                soup_dict['Mileage'] = miles[miles_count].get_text().strip()
-                                soup_dict['Link'] = "https://www.cars.com" + a['href']
-                                # soup_dict[a.get_text().strip()] = [prices[price_count].get_text().strip(), miles[miles_count].get_text().strip()]
-                                miles_count += 1
+                        try:
+                            if new_used[count].get_text().strip() == 'Used':
+                                try:
+                                    soup_dict['Zip'] = line.strip()
+                                    soup_dict['Car'] = a.get_text().strip()
+                                    soup_dict['Price'] = prices[price_count].get_text().strip()
+                                    soup_dict['Mileage'] = miles[miles_count].get_text().strip()
+                                    soup_dict['Link'] = "https://www.cars.com" + a['href']
+                                    # soup_dict[a.get_text().strip()] = [prices[price_count].get_text().strip(), miles[miles_count].get_text().strip()]
+                                    miles_count += 1
+                                    price_count += 1
+                                    count+=1
+                                except IndexError:
+                                    print('REEEEEEEEEEEEEEEEe')
+                                    print("")
+                            else:
                                 price_count += 1
                                 count+=1
-                            except IndexError:
-                                print('REEEEEEEEEEEEEEEEe')
-                                print("")
-                        else:
-                            price_count += 1
-                            count+=1
+                        except IndexError:
+                            continue
                     if len(soup_dict) == 0:
                         zip_dict.append({'Zip': line.strip(), 'Car': '', 'Price': '', 'Mileage': '', 'Link': ''})
                     else:
