@@ -75,8 +75,8 @@ if __name__ == "__main__":
                             try:
                                 if new_used[count].get_text().strip().endswith('Certified'):
                                     continue
-                                except IndexError:
-                                    continue
+                            except IndexError:
+                                continue
                             try:        
                                 if new_used[count].get_text().strip() == 'Used':
                                     try:
