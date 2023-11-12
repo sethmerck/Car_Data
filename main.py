@@ -75,7 +75,10 @@ if __name__ == "__main__":
                             try:
                                 if new_used[count].get_text().strip().endswith('Certified'):
                                     continue
-                                elif new_used[count].get_text().strip() == 'Used':
+                                except IndexError:
+                                    continue
+                            try:        
+                                if new_used[count].get_text().strip() == 'Used':
                                     try:
                                         soup_dict['Zip'] = line.strip()
                                         soup_dict['Car'] = a.get_text().strip()
@@ -93,7 +96,7 @@ if __name__ == "__main__":
                                     price_count += 1
                                     count+=1
                             except IndexError:
-                                continue
+                                    continue
                         if len(soup_dict) == 0:
                             zip_dict.append({'Zip': line.strip(), 'Car': '', 'Price': '', 'Mileage': '', 'Link': ''})
                         else:
