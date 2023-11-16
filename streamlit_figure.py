@@ -188,8 +188,8 @@ st.write("")
 ##stat_table## 
 
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.median, 'count'])
-data_grouped = data.groupby(by="Car")["Price"].agg([np.median])
-prev_mileage_data = prev_data.groupby(by="Car")["Mileage"].agg([np.median, 'count'])
+data_grouped = data.groupby(by="Car")["Price"].agg([np.median, 'count'])
+prev_mileage_data = prev_data.groupby(by="Car")["Mileage"].agg([np.median])
 mileage_data = data.groupby(by="Car")["Mileage"].agg([np.median])
 
 data_grouped['prev_price'] = prev_data_grouped['median']
@@ -197,7 +197,7 @@ data_grouped['prev_count'] = prev_data_grouped['count']
 data_grouped['prev_mileage'] = prev_mileage_data['median']
 data_grouped['mileage'] = mileage_data['median']
 
-data_grouped['diff'] = data_grouped['count'] - data_grouped['prev_count']
+data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
 data_grouped['Price_Difference']= data_grouped['median'] - prev_data_grouped['median']
 data_grouped.rename(columns={"median": f"{z} Median", "prev_price": f"{w} Median", "count": f"{z} Count", "prev_count": f"{w} Count", "diff": "Count_Difference"}, inplace=True)
 data_grouped=data_grouped[[f"{z} Median", f"{w} Median", 'Price_Difference', f"{z} Count", f"{w} Count", "Count_Difference", 'prev_mileage', 'mileage']]
