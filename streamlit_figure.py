@@ -120,16 +120,17 @@ prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
 
-
+st.write(data)
+st.write("")
 ###############################################################
 ### Line graph showing every brands median change over time ####
-fig, ax = plt.subplots()
+# fig, ax = plt.subplots()
 
-for key, grp in data.groupby(['Car']):
-    ax = grp.plot(ax=ax, kind='line', x=lines, y='Mileage', c=key, label=key)
+# for key, grp in data.groupby(['Car']):
+#     ax = grp.plot(ax=ax, kind='line', x=lines, y='Mileage', c=key, label=key)
 
-plt.legend(loc='best')
-plt.show()
+# plt.legend(loc='best')
+# plt.show()
 
 ###################################
 
