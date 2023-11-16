@@ -132,6 +132,7 @@ for i, v in enumerate(lines):
     df = df.explode('Car')
     
     df = df.query(f"Car in {brands}")
+    df = df.groupby(by="Car")["Mileage"].agg([np.median])
     st.write(v)
     st.write(df)
     st.write("")
