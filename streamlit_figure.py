@@ -119,18 +119,20 @@ data = data.explode('Car')
 prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
-fig, ax = plt.subplots()
+
 
 ###############################################################
 ### Line graph showing every brands median change over time ####
-for key, grp in df.groupby(['Car']):
+fig, ax = plt.subplots()
+
+for key, grp in data.groupby(['Car']):
     ax = grp.plot(ax=ax, kind='line', x=lines, y='Mileage', c=key, label=key)
 
 plt.legend(loc='best')
 plt.show()
 
-
 ###################################
+
 ## price box plot #
 a, b = plt.subplots(1,2, figsize=(10,5))
 
