@@ -133,7 +133,7 @@ for i, v in enumerate(lines):
     
     df = df.query(f"Car in {brands}")
     df = df.groupby(by="Car")["Mileage"].agg([np.median])
-    pd.Series(df.Car,index=df.Mileage).to_dict()
+    # pd.Series(df.Car,index=df.Mileage).to_dict()
     
     st.write(v)
     st.write(pd.Series(df.index,index=df.Mileage).to_dict())
