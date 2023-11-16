@@ -45,28 +45,7 @@ data_merged = pd.merge(data, data_grouped, on='Zip', how='left')
 
 prev_data_merged = prev_data_merged[prev_data_merged['size'] > 200]
 data_merged = data_merged[data_merged['size'] > 200]
-##stat_table## 
 
-prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.median, 'count'])
-data_grouped = data.groupby(by="Car")["Price"].agg([np.median, 'count'])
-prev_mileage_data = prev_data.groupby(by="Car")["Mileage"].agg([np.median])
-mileage_data = data.groupby(by="Car")["Mileage"].agg([np.median])
-
-data_grouped['prev_price'] = prev_data_grouped['median']
-data_grouped['prev_count'] = prev_data_grouped['count']
-data_grouped[f"{w} Median Mileage"] = prev_mileage_data['median']
-data_grouped[f"{z} Median Mileage"] = mileage_data['median']
-data_grouped['Mileage_Difference'] = mileage_data['median'] - prev_mileage_data['median']
-
-data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
-data_grouped['Price_Difference']= data_grouped['median'] - prev_data_grouped['median']
-data_grouped.rename(columns={"median": f"{z} Median Price", "prev_price": f"{w} Median Price", "count": f"{z} Count", "prev_count": f"{w} Count", "diff": "Count_Difference"}, inplace=True)
-data_grouped=data_grouped[[f"{z} Median Price", f"{w} Median Price", 'Price_Difference', f"{z} Count", f"{w} Count", "Count_Difference", f"{z} Median Mileage", f"{w} Median Mileage", "Mileage_Difference"]]
-st.write(" ")
-st.title("Breakdown of Make Data")
-st.dataframe(data_grouped,use_container_width=True)
-
-st.write("")
 ## price box plot #
 # a, b = plt.subplots(1,2, figsize=(10,5))
 
@@ -197,6 +176,27 @@ a.suptitle("Mileage Distribution Model of Five Most Common Car Makes\n", fontsiz
 # box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
 
 st.pyplot(a)
+st.write("")
+##stat_table## 
+
+prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.median, 'count'])
+data_grouped = data.groupby(by="Car")["Price"].agg([np.median, 'count'])
+prev_mileage_data = prev_data.groupby(by="Car")["Mileage"].agg([np.median])
+mileage_data = data.groupby(by="Car")["Mileage"].agg([np.median])
+
+data_grouped['prev_price'] = prev_data_grouped['median']
+data_grouped['prev_count'] = prev_data_grouped['count']
+data_grouped[f"{w} Median Mileage"] = prev_mileage_data['median']
+data_grouped[f"{z} Median Mileage"] = mileage_data['median']
+data_grouped['Mileage_Difference'] = mileage_data['median'] - prev_mileage_data['median']
+
+data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
+data_grouped['Price_Difference']= data_grouped['median'] - prev_data_grouped['median']
+data_grouped.rename(columns={"median": f"{z} Median Price", "prev_price": f"{w} Median Price", "count": f"{z} Count", "prev_count": f"{w} Count", "diff": "Count_Difference"}, inplace=True)
+data_grouped=data_grouped[[f"{z} Median Price", f"{w} Median Price", 'Price_Difference', f"{z} Count", f"{w} Count", "Count_Difference", f"{z} Median Mileage", f"{w} Median Mileage", "Mileage_Difference"]]
+st.write(" ")
+st.title("Breakdown of Make Data")
+st.dataframe(data_grouped,use_container_width=True)
 
 # st.caption("""I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car 
 #            makes (Honda, Nissan, Toyota). However, I did not find much difference in the mileage distributions for listings of these five brands. The next few weeks will be spent 
