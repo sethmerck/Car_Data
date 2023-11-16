@@ -74,34 +74,34 @@ data_merged = data_merged[data_merged['size'] > 200]
 
 # st.pyplot(a)
 
-plt.rcParams["figure.figsize"] = [7.00, 3.50]
-plt.rcParams["figure.autolayout"] = True
-fig, ax = plt.subplots(1, 2)
-fig.suptitle("Price vs. Mileage Regression Among All Listings")
-prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[0])
-plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[1])
+# plt.rcParams["figure.figsize"] = [7.00, 3.50]
+# plt.rcParams["figure.autolayout"] = True
+# fig, ax = plt.subplots(1, 2)
+# fig.suptitle("Price vs. Mileage Regression Among All Listings")
+# prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[0])
+# plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[1])
 
-count = 0
-for k in ax:
-    if count == 0:
-        counts = prev_data["Price"].count().tolist()
-        k.set_title(f"Data Collected: {w}\n\nn = {counts}")
-    else:
-        counts = data["Price"].count().tolist()
-        k.set_title(f"Data Collected: {z}\n\nn = {counts}")
-    k.set_xlabel('Mileage', fontsize = 18, labelpad=18)
+# count = 0
+# for k in ax:
+#     if count == 0:
+#         counts = prev_data["Price"].count().tolist()
+#         k.set_title(f"Data Collected: {w}\n\nn = {counts}")
+#     else:
+#         counts = data["Price"].count().tolist()
+#         k.set_title(f"Data Collected: {z}\n\nn = {counts}")
+#     k.set_xlabel('Mileage', fontsize = 18, labelpad=18)
     
-    k.set_ylabel('Price', fontsize = 18, labelpad=18)
+#     k.set_ylabel('Price', fontsize = 18, labelpad=18)
     
-    k.set_ylim(0, 250000)
+#     k.set_ylim(0, 250000)
     
-    k.set_xlim(0, 350000)
-    count+=1
+#     k.set_xlim(0, 350000)
+#     count+=1
 
 
 
-st.pyplot(fig)
-st.write("")
+# st.pyplot(fig)
+# st.write("")
 
 ## sorts by make data ##
 
