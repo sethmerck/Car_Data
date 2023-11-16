@@ -119,6 +119,18 @@ data = data.explode('Car')
 prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
+fig, ax = plt.subplots()
+
+###############################################################
+### Line graph showing every brands median change over time ####
+for key, grp in df.groupby(['Car']):
+    ax = grp.plot(ax=ax, kind='line', x=lines, y='Mileage', c=key, label=key)
+
+plt.legend(loc='best')
+plt.show()
+
+
+###################################
 ## price box plot #
 a, b = plt.subplots(1,2, figsize=(10,5))
 
@@ -197,6 +209,9 @@ data_grouped=data_grouped[[f"{z} Median Price", f"{w} Median Price", 'Price_Diff
 st.write(" ")
 st.title("Breakdown of Make Data")
 st.dataframe(data_grouped,use_container_width=True)
+
+st.write("")
+
 
 # st.caption("""I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car 
 #            makes (Honda, Nissan, Toyota). However, I did not find much difference in the mileage distributions for listings of these five brands. The next few weeks will be spent 
