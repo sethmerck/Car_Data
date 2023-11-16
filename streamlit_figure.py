@@ -185,14 +185,14 @@ st.caption("""I found American made cars (Chevrolet and Ford) had more listings 
            consistent. Overall that means a better value for those purchasing a used vehicle. This suggests to me that it's possible people are trying to sell their 
            secondary or tertiary vehicles for some quick cash. Makes sense with a recession looming.""")
 
-## stat_table ## 
+stat_table 
 
-# prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
-# data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
+prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
+data_grouped = data.groupby(by="Car")["Price"].agg([np.mean, np.std, 'min', 'max', 'count'])
 
-# data_grouped['prev_count'] = prev_data_grouped['count']
-# data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
-# data_grouped.rename(columns={"mean": f"{z} Mean", "std": f"{z} STD Dev", "min": f"{z} Min", "max": f"{z} Max", "count": f"{z} Count", "prev_count": f"{w} Count", "diff": "Count_Difference"}, inplace=True)
-# st.write(" ")
-# st.title("Breakdown of Make Data")
-# st.dataframe(data_grouped,use_container_width=True)
+data_grouped['prev_count'] = prev_data_grouped['count']
+data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
+data_grouped.rename(columns={"mean": f"{z} Mean", "std": f"{z} STD Dev", "min": f"{z} Min", "max": f"{z} Max", "count": f"{z} Count", "prev_count": f"{w} Count", "diff": "Count_Difference"}, inplace=True)
+st.write(" ")
+st.title("Breakdown of Make Data")
+st.dataframe(data_grouped,use_container_width=True)
