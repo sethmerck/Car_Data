@@ -200,7 +200,7 @@ data_grouped[f"{z} Median Mileage"] = mileage_data['median']
 data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
 data_grouped['Price_Difference']= data_grouped['median'] - prev_data_grouped['median']
 data_grouped.rename(columns={"median": f"{z} Median Price", "prev_price": f"{w} Median Price", "count": f"{z} Count", "prev_count": f"{w} Count", "diff": "Count_Difference"}, inplace=True)
-data_grouped=data_grouped[[f"{z} Median Price", f"{w} Median Price", 'Price_Difference', f"{z} Count", f"{w} Count", "Count_Difference", f"{w} Median Mileage", f"{z} Median Mileage"]]
+data_grouped=data_grouped[[f"{z} Median Price", f"{w} Median Price", 'Price_Difference', f"{z} Count", f"{w} Count", "Count_Difference", f"{z} Median Mileage", f"{w} Median Mileage"]]
 st.write(" ")
 st.title("Breakdown of Make Data")
 st.dataframe(data_grouped,use_container_width=True)
