@@ -194,7 +194,7 @@ data_grouped['prev_price'] = prev_data_grouped['median']
 data_grouped['prev_count'] = prev_data_grouped['count']
 data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
 data_grouped.rename(columns={"median": f"{z} Median", "prev_price": f"{w} Median", "count": f"{z} Count", "prev_count": f"{w} Count", "diff": "Count_Difference"}, inplace=True)
-data_grouped=data_grouped[[f"{z} Median", f"{w} Median"]]
+data_grouped=data_grouped[[f"{z} Median", f"{w} Median", f"{z} Count", f"{w} Count", "Count_Difference"]]
 st.write(" ")
 st.title("Breakdown of Make Data")
 st.dataframe(data_grouped,use_container_width=True)
