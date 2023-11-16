@@ -132,7 +132,9 @@ for i, v in enumerate(lines):
     df = df.explode('Car')
     
     df = df.query(f"Car in {brands}")
+    st.write(v)
     st.write(df)
+    st.write("")
 
 
 # st.write(data)
