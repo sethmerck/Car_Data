@@ -133,9 +133,9 @@ for i, v in enumerate(lines):
     
     df = df.query(f"Car in {brands}")
     df = df.groupby(by="Car")["Mileage"].agg([np.median])
-    brand_dict = dict(zip(df["Car"], df.median))
+    # brand_dict = dict(zip(df["Car"], df.median))
     st.write(v)
-    st.write(brand_dict)
+    st.write(df)
     st.write("")
 
 
