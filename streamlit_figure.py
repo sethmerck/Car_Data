@@ -23,6 +23,7 @@ end_t = lines[-1]
 
 
 w, z = st.select_slider('Date Collected',options=lines, value=[start_t,end_t])
+    
 
 
 prev_file = f"test_actions{lines.index(w)+1}.csv"
@@ -119,9 +120,23 @@ data = data.explode('Car')
 prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
+### should be self contained ###
+for i, v in enumerate(lines):
+    file = f"test_actions{i+1}.csv"
+    df = pd.read_csv(f'working_dataset/{file}')
+    df = df.drop(df[df["Mileage"]<100].index)
+    df = df.drop(df[df["Price"]<100].index)
 
-st.write(data)
-st.write("")
+    df['Car'] = df['Car'].str.split(' ')
+
+    df = df.explode('Car')
+    
+    df = df.query(f"Car in {brands}")
+    st.write(df)
+
+
+# st.write(data)
+# st.write("")
 ###############################################################
 ### Line graph showing every brands median change over time ####
 # fig, ax = plt.subplots()
