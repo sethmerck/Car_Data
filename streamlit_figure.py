@@ -194,8 +194,8 @@ mileage_data = data.groupby(by="Car")["Mileage"].agg([np.median])
 
 data_grouped['prev_price'] = prev_data_grouped['median']
 data_grouped['prev_count'] = prev_data_grouped['count']
-data_grouped['prev_mileage'] = prev_mileage_data['median']
-data_grouped['mileage'] = mileage_data['median']
+data_grouped[f"{w} Median Mileage"] = prev_mileage_data['median']
+data_grouped[f"{z} Median Mileage"] = mileage_data['median']
 
 data_grouped['diff'] = data_grouped['count'] - prev_data_grouped['count']
 data_grouped['Price_Difference']= data_grouped['median'] - prev_data_grouped['median']
