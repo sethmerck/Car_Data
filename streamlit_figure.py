@@ -139,10 +139,10 @@ for i, v in enumerate(lines):
 
     for key, value in brand_dict.items():
         if key in master_brand_dict:
-            master_brand_dict[key].append(v, value)
+            master_brand_dict[key].append((v, value))
         else:
             list_of_two = []
-            list_of_two.append(v, value)
+            list_of_two.append((v, value))
             master_brand_dict[key] = list_of_two
     
     
