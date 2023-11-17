@@ -137,12 +137,12 @@ for i, v in enumerate(lines):
     df = df.rename(columns={'median': 'Mileage'})
     brand_dict = pd.Series(df.Mileage.values,index=df.Car).to_dict()
 
-    for key in brand_dict:
+    for key, value in brand_dict.items():
         if key in master_brand_dict:
-            master_brand_dict[key].append(brand_dict[key])
+            master_brand_dict[key].append(value)
         else:
             list_of_one = []
-            list_of_one.append(brand_dict[key])
+            list_of_one.append(value)
             master_brand_dict[key] = list_of_one
     
     
