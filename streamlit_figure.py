@@ -121,6 +121,7 @@ prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
 ### should be self contained ###
+master_brand_dict = {}
 for i, v in enumerate(lines):
     file = f"test_actions{i+1}.csv"
     df = pd.read_csv(f'working_dataset/{file}')
@@ -134,10 +135,14 @@ for i, v in enumerate(lines):
     df = df.query(f"Car in {brands}")
     df = df.groupby(by="Car", as_index=False)["Mileage"].agg([np.median])
     df = df.rename(columns={'median': 'Mileage'})
+    brand_dict = pd.Series(df.Mileage.values,index=df.Car).to_dict()
+
+    
+    
     # pd.Series(df.Car,index=df.Mileage).to_dict()
     
     st.write(v)
-    st.write(pd.Series(df.Mileage.values,index=df.Car).to_dict())
+    st.write(brand_dict)
     st.write("")
 
 
