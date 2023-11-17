@@ -155,9 +155,10 @@ for i, v in enumerate(lines):
 for brand in master_brand_dict:
     x_vals = [item[0] for item in master_brand_dict[brand]]
     y_vals = [item[1] for item in master_brand_dict[brand]]
-    st.write(x_vals)
-    st.write(y_vals)
-    st.write("")
+    plt.plot(x_vals, y_vals, label=brand)
+    # st.write(x_vals)
+    # st.write(y_vals)
+    # st.write("")
 
 # st.write(data)
 # st.write("")
