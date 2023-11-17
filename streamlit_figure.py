@@ -137,7 +137,7 @@ for i, v in enumerate(lines):
     # pd.Series(df.Car,index=df.Mileage).to_dict()
     
     st.write(v)
-    st.write(pd.Series(df.Car,index=df.Mileage).to_dict())
+    st.write(pd.Series(df.Mileage,index=df.Car).to_dict())
     st.write("")
 
 
