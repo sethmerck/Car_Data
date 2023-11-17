@@ -152,6 +152,7 @@ for i, v in enumerate(lines):
     # st.write(brand_dict)
     # st.write("")
 # st.write(master_brand_dict)
+fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     x_vals = [item[0] for item in master_brand_dict[brand]]
     y_vals = [item[1] for item in master_brand_dict[brand]]
@@ -159,7 +160,7 @@ for brand in master_brand_dict:
     plt.legend()
     plt.xlabel('Date')
     plt.ylabel('Median Mileage')
-fig = plt.figure(figsize=(8,8))
+
 st.pyplot(fig)
     # st.write(x_vals)
     # st.write(y_vals)
