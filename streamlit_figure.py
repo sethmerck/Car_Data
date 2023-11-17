@@ -141,7 +141,9 @@ for i, v in enumerate(lines):
         if key in master_brand_dict:
             master_brand_dict[key].append(brand_dict[key])
         else:
-            master_brand_dict[key] = list(int(brand_dict[key]))
+            list_of_one = []
+            list_of_one.append(brand_dict[key])
+            master_brand_dict[key] = list_of_one
     
     
     # pd.Series(df.Car,index=df.Mileage).to_dict()
