@@ -137,6 +137,11 @@ for i, v in enumerate(lines):
     df = df.rename(columns={'median': 'Mileage'})
     brand_dict = pd.Series(df.Mileage.values,index=df.Car).to_dict()
 
+    for key in brand_dict:
+        if key in master_brand_dict:
+            master_brand_dict[key].append(brand_dict[key])
+        else:
+            master_brand_dict[key] = list(brand_dict[key])
     
     
     # pd.Series(df.Car,index=df.Mileage).to_dict()
@@ -144,7 +149,7 @@ for i, v in enumerate(lines):
     st.write(v)
     st.write(brand_dict)
     st.write("")
-
+st.write(master_brand_dict)
 
 # st.write(data)
 # st.write("")
