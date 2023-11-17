@@ -139,17 +139,17 @@ for i, v in enumerate(lines):
 
     for key, value in brand_dict.items():
         if key in master_brand_dict:
-            master_brand_dict[key].append(value)
+            master_brand_dict[key].append(v, value)
         else:
-            list_of_one = []
-            list_of_one.append(value)
-            master_brand_dict[key] = list_of_one
+            list_of_two = []
+            list_of_two.append(v, value)
+            master_brand_dict[key] = list_of_two
     
     
     # pd.Series(df.Car,index=df.Mileage).to_dict()
     
     st.write(v)
-    st.write(brand_dict)
+    # st.write(brand_dict)
     st.write("")
 st.write(master_brand_dict)
 
