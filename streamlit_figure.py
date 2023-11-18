@@ -156,10 +156,10 @@ for i, v in enumerate(lines):
 # st.write(master_brand_dict)
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
-    x_vals = [int(datetime(item[0]).timestamp()) for item in master_brand_dict[brand]]
+    x_vals = [item[0] for item in master_brand_dict[brand]]
     y_vals = [item[1] for item in master_brand_dict[brand]]
-    # plt.scatter(x_vals, y_vals, label=brand)
-    plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
+    plt.scatter(x_vals, y_vals, label=brand)
+    # plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
     plt.legend()
     plt.xlabel('Date')
     plt.ylabel('Median Mileage')
