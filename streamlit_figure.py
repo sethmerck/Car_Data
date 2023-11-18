@@ -157,7 +157,7 @@ fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     x_vals = [item[0] for item in master_brand_dict[brand]]
     y_vals = [item[1] for item in master_brand_dict[brand]]
-    plt.scatter(x_vals, y_vals, label=brand)
+    # plt.scatter(x_vals, y_vals, label=brand)
     plt.plot(np.unique(x_vals), np.poly1d(np.polyfit(x_vals, y_vals, 1))(np.unique(x_vals)))
     plt.legend()
     plt.xlabel('Date')
