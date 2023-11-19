@@ -151,6 +151,7 @@ for i, v in enumerate(lines):
             list_of_two = []
             list_of_two.append((v, value))
             master_brand_dict[key] = list_of_two
+    st.write(master_brand_dict[key])
     
     
     # pd.Series(df.Car,index=df.Mileage).to_dict()
