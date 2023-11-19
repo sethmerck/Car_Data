@@ -142,7 +142,7 @@ for i, v in enumerate(lines):
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict('index')
     
-    st.write(brand_dict)
+    st.write(brand_dict.items())
     
     for key, value in brand_dict.items():
         if key in master_brand_dict:
