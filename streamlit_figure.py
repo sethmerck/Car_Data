@@ -144,12 +144,12 @@ for i, v in enumerate(lines):
     
     st.write(brand_dict.items())
     
-    for key, value in brand_dict.items():
+    for key in brand_dict:
         if key in master_brand_dict:
-            master_brand_dict[key].append((v, value))
+            master_brand_dict[key].append((v, brand_dict[key))
         else:
             list_of_two = []
-            list_of_two.append((v, value))
+            list_of_two.append((v, brand_dict[key]))
             master_brand_dict[key] = list_of_two
 st.write(master_brand_dict[key])
     
