@@ -6,6 +6,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import scipy.stats
 
 
 url = "https://github.com/sethmerck/Used_Cars_in_GA"
