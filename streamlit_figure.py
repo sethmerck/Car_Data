@@ -277,13 +277,13 @@ for brand in master_brand_dict:
         y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
         
         m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
-        # plt.annotate(f'R^2 = {r_value**2}', xy=(x_vals[0], y_vals[0]))
+        
      
         
         
         plt.scatter(x_vals, y_vals, label=f"{brand}: R^2 = {round(r_value**2,2)}")
         plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
-        plt.legend()
+        plt.legend(fontsize=10)
         plt.xticks(ticks=[x_vals[0], x_vals[int(len(x_vals)/2) + 1], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[int(len(x_vals)/2) + 1], x_tick_vals[-1]])
         plt.xlabel('Date', labelpad=15)
         plt.ylabel('Median Mileage', labelpad=15)
