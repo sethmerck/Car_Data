@@ -152,8 +152,6 @@ for i, v in enumerate(lines):
             list_of_two.append((v, brand_dict[key]))
             master_brand_dict[key] = list_of_two
     
-st.write(master_brand_dict["BMW"])
-    
     
     # pd.Series(df.Car,index=df.Mileage).to_dict()
     
@@ -165,12 +163,14 @@ fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     # datetime.datetime.combine(i, datetime.time.min)  for i in lines
     x_tick_vals = [item[0] for item in master_brand_dict[brand]]
-    st.write(x_tick_vals)
+    
     x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
-    st.write(x_vals)
+    
     y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
     counts = [item[1]["count"] for item in master_brand_dict[brand]]
+    
     st.write(counts)
+    
     plt.scatter(x_vals, y_vals, label=brand)
     plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals))
     plt.legend()
