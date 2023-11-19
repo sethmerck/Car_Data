@@ -1,7 +1,7 @@
 ### creates chart, using streamlit library, with the most recent csv file in working_dataset folder
 import os
 import pandas as pd
-from datetime import datetime
+import datetime
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -17,7 +17,7 @@ num = int(f.read())
 
 with open('status.log', 'r') as logs:
     lines = logs.readlines()[(-1 * num):]
-    lines = [datetime.strptime(i[:10], '%Y-%m-%d').date() for i in lines]
+    lines = [datetime.datetime.strptime(i[:10], '%Y-%m-%d').date() for i in lines]
 
 start_t = lines[0]
 end_t = lines[-1]
@@ -156,7 +156,8 @@ for i, v in enumerate(lines):
 # st.write(master_brand_dict)
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
-    x_vals = [item[0] for item in master_brand_dict[brand]]
+    # datetime.datetime.combine(i, datetime.time.min)  for i in lines
+    x_vals = [datetime.datetime.combine(item[0], datetime.time.min) for item in master_brand_dict[brand]]
     y_vals = [item[1] for item in master_brand_dict[brand]]
     plt.scatter(x_vals, y_vals, label=brand)
     # plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
