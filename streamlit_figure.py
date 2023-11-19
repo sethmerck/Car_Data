@@ -166,21 +166,22 @@ for brand in master_brand_dict:
     count_avg = sum(counts)/len(counts)
     st.write(brand, count_avg)
     # datetime.datetime.combine(i, datetime.time.min)  for i in lines
-    x_tick_vals = [item[0] for item in master_brand_dict[brand]]
-    
-    x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
-    
-    y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
-    
-    
-    
-    
-    plt.scatter(x_vals, y_vals, label=brand)
-    plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals))
-    plt.legend()
-    plt.xticks(ticks=[x_vals[0], x_vals[int(len(x_vals)/2) + 1], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[int(len(x_vals)/2) + 1], x_tick_vals[-1]])
-    plt.xlabel('Date')
-    plt.ylabel('Median Mileage')
+    if count_avg > 300:
+        x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+        
+        x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
+        
+        y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
+        
+        
+        
+        
+        plt.scatter(x_vals, y_vals, label=brand)
+        plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals))
+        plt.legend()
+        plt.xticks(ticks=[x_vals[0], x_vals[int(len(x_vals)/2) + 1], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[int(len(x_vals)/2) + 1], x_tick_vals[-1]])
+        plt.xlabel('Date')
+        plt.ylabel('Median Mileage')
 
 st.pyplot(fig)
     # st.write(x_vals)
