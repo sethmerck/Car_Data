@@ -163,7 +163,7 @@ for brand in master_brand_dict:
     plt.scatter(x_vals, y_vals, label=brand)
     plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals))
     plt.legend()
-    plt.xticks(ticks=[x_vals[0], x_vals[int(len(x_vals)/2)], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[int(len(x_vals)/2)], x_tick_vals[-1]])
+    plt.xticks(ticks=[x_vals[0], x_vals[int(len(x_vals)/2) + 1], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[int(len(x_vals)/2) + 1], x_tick_vals[-1]])
     plt.xlabel('Date')
     plt.ylabel('Median Mileage')
 
