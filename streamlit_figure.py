@@ -146,7 +146,7 @@ for i, v in enumerate(lines):
     
     for key in brand_dict:
         if key in master_brand_dict:
-            master_brand_dict[key].append((v, brand_dict[key))
+            master_brand_dict[key].append((v, brand_dict[key]))
         else:
             list_of_two = []
             list_of_two.append((v, brand_dict[key]))
