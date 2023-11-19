@@ -159,7 +159,7 @@ for brand in master_brand_dict:
     # datetime.datetime.combine(i, datetime.time.min)  for i in lines
     x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
     y_vals = [item[1] for item in master_brand_dict[brand]]
-    # plt.scatter(x_vals, y_vals, label=brand)
+    plt.scatter(x_vals, y_vals, label=brand, s=0)
     plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals), label=brand)
     plt.legend()
     plt.xlabel('Date')
