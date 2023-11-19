@@ -161,15 +161,19 @@ for i, v in enumerate(lines):
 # st.write(master_brand_dict)
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
+    counts = [item[1]["count"] for item in master_brand_dict[brand]]
+    st.write(brand, counts)
+    count_avg = sum(counts)/len(counts)
+    st.write(brand, count_avg)
     # datetime.datetime.combine(i, datetime.time.min)  for i in lines
     x_tick_vals = [item[0] for item in master_brand_dict[brand]]
     
     x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
     
     y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
-    counts = [item[1]["count"] for item in master_brand_dict[brand]]
     
-    st.write(counts)
+    
+    
     
     plt.scatter(x_vals, y_vals, label=brand)
     plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals))
