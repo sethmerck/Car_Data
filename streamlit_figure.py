@@ -135,7 +135,7 @@ for i, v in enumerate(lines):
     
     df = df.query(f"Car in {brands}")
     df = df.groupby(by="Car", as_index=False)["Mileage"].agg([np.median, 'count'])
-    df = df.drop(df[df["count"]<300].index)
+    # df = df.drop(df[df["count"]<300].index)
     df = df.rename(columns={'median': 'Mileage'})
     # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
     df = df[['Mileage', 'count', 'Car']]
@@ -167,6 +167,7 @@ for brand in master_brand_dict:
     x_tick_vals = [item[0] for item in master_brand_dict[brand]]
     st.write(x_tick_vals)
     x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
+    st.write(x_vals)
     y_vals = [item[1] for item in master_brand_dict[brand]]
     plt.scatter(x_vals, y_vals, label=brand)
     plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals))
