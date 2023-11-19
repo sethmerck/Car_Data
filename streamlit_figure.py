@@ -280,8 +280,8 @@ for brand in master_brand_dict:
         plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals))
         plt.legend()
         plt.xticks(ticks=[x_vals[0], x_vals[int(len(x_vals)/2) + 1], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[int(len(x_vals)/2) + 1], x_tick_vals[-1]])
-        plt.xlabel('\nDate')
-        plt.ylabel('Median Mileage', labelpad=10)
+        plt.xlabel('Date', labelpad=15)
+        plt.ylabel('Median Mileage', labelpad=15)
     plt.title("Change in Median Mileage of Select Makes Over Time")
 st.pyplot(fig)
 
