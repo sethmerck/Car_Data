@@ -166,7 +166,7 @@ for brand in master_brand_dict:
     count_avg = sum(counts)/len(counts)
     st.write(brand, count_avg)
     # datetime.datetime.combine(i, datetime.time.min)  for i in lines
-    if count_avg > 300:
+    if count_avg > 350:
         x_tick_vals = [item[0] for item in master_brand_dict[brand]]
         
         x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
