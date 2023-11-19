@@ -142,7 +142,7 @@ for i, v in enumerate(lines):
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict('index')
     
-    st.write(brand_dict)
+    
     
     for key in brand_dict:
         if key in master_brand_dict:
@@ -162,11 +162,11 @@ for i, v in enumerate(lines):
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     counts = [item[1]["count"] for item in master_brand_dict[brand]]
-    st.write(brand, counts)
+
     count_avg = sum(counts)/len(counts)
-    st.write(brand, count_avg)
+
     # datetime.datetime.combine(i, datetime.time.min)  for i in lines
-    if count_avg > 320:
+    if count_avg > 290:
         x_tick_vals = [item[0] for item in master_brand_dict[brand]]
         
         x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
