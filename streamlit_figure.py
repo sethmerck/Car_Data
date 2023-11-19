@@ -140,7 +140,7 @@ for i, v in enumerate(lines):
     # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
     df = df[['Mileage', 'count', 'Car']]
     df.set_index('Car',inplace=True)
-    brand_dict = df.to_dict('split')
+    brand_dict = df.to_dict('list')
     
     st.write(brand_dict)
     
