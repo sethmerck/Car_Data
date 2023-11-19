@@ -137,7 +137,7 @@ for i, v in enumerate(lines):
     df = df.groupby(by="Car", as_index=False)["Mileage"].agg([np.median, 'count'])
     df = df.drop(df[df["count"]<300].index)
     df = df.rename(columns={'median': 'Mileage'})
-    brand_dict = pd.Series([df.Mileage.values, df.count.values],index=df.Car).to_dict()
+    brand_dict = pd.Series([df.Mileage.values, df['count'].values],index=df.Car).to_dict()
     st.write(brand_dict)
     for key, value in brand_dict.items():
         if key in master_brand_dict:
