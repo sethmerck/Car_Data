@@ -142,7 +142,7 @@ for i, v in enumerate(lines):
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict('index')
     
-    st.write(brand_dict.items())
+    st.write(brand_dict)
     
     for key in brand_dict:
         st.write(key)
