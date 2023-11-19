@@ -260,7 +260,7 @@ for i, v in enumerate(lines):
     # st.write(v)
     # st.write(brand_dict)
     # st.write("")
-st.write(master_brand_dict)
+# st.write(master_brand_dict)
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     counts = [item[1]["count"] for item in master_brand_dict[brand]]
@@ -269,13 +269,16 @@ for brand in master_brand_dict:
 
     # datetime.datetime.combine(i, datetime.time.min)  for i in lines
     if count_avg > 290:
+        
         x_tick_vals = [item[0] for item in master_brand_dict[brand]]
         
         x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
         
         y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
         
-        
+        m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+        st.write(r_value**2)
+     
         
         
         plt.scatter(x_vals, y_vals, label=brand)
