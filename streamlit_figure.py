@@ -168,7 +168,7 @@ for brand in master_brand_dict:
     st.write(x_tick_vals)
     x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
     st.write(x_vals)
-    y_vals = [item[1] for item in master_brand_dict[brand]]
+    y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
     plt.scatter(x_vals, y_vals, label=brand)
     plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 2))(x_vals))
     plt.legend()
