@@ -145,6 +145,7 @@ for i, v in enumerate(lines):
     st.write(brand_dict.items())
     
     for key in brand_dict:
+        st.write(key)
         if key in master_brand_dict:
             master_brand_dict[key].append((v, brand_dict[key]))
         else:
