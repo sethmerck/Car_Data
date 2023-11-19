@@ -276,8 +276,8 @@ for brand in master_brand_dict:
         
         y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
         
-        m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
-        plt.annotate(f'R^2 = {r_value**2}')
+        # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+        # plt.annotate(f'R^2 = {r_value**2}', xy=())
      
         
         
