@@ -240,21 +240,6 @@ for i, v in enumerate(lines):
     df = df.rename(columns={'median': 'Mileage'})
     # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
     df = df[['Mileage', 'count', 'Car']]
-    df['Date']=v
-    st.write(df)
-
-    m, b, r_value, p_value, std_err = scipy.stats.linregress(df['Date'], df['Mileage'])
-    st.write(r_value**2)
-    # fig, ax = plt.subplots()
-    # ax.scatter(df['X'],df['Y'])
-    # ax.plot(df['X'], m*df['X'] + b)
-    # ax.annotate('r^2: ' + str("{:.2f}".format(r_value**2)), xy=(1950,19500))
-    # ax.annotate('formula: ' + str("{:.2f}".format(m)) + 'x + ' + str("{:.2f}".format(b)), xy=(1950,18500))
-    
-    # fig.show()
-    
-    # print(r_value**2)
-
     
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict('index')
@@ -275,7 +260,7 @@ for i, v in enumerate(lines):
     # st.write(v)
     # st.write(brand_dict)
     # st.write("")
-# st.write(master_brand_dict)
+st.write(master_brand_dict)
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     counts = [item[1]["count"] for item in master_brand_dict[brand]]
