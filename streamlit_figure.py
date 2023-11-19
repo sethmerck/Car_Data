@@ -165,6 +165,7 @@ fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     # datetime.datetime.combine(i, datetime.time.min)  for i in lines
     x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+    st.write(x_tick_vals)
     x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
     y_vals = [item[1] for item in master_brand_dict[brand]]
     plt.scatter(x_vals, y_vals, label=brand)
