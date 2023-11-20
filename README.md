@@ -20,7 +20,7 @@ Workflow folder and main.py file use Github Actions to periodically run this cod
 
 I found quite a few reasonably valued cars in my area that I'd consider purchasing. I also found which makes were most widely resold in the state (Honda, Chevrolet, Nissan, Ford, Toyota). 
 
-Along with this, I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car makes (Honda, Nissan, Toyota). However, I did not find much difference in the mileage distributions for listings of these five brands. 
+Along with this, I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car makes (Honda, Nissan, Toyota).
 
 As of November 19th, 2023 I've noticed that the median mileage of the majority of the most common car makes has been decreasing significantly. Will run further stats in line with this in the following weeks and investigate the matter further.
 
