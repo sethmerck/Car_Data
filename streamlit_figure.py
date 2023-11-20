@@ -281,7 +281,7 @@ for brand in master_brand_dict:
      
         
         
-        plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}")
+        plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}", s=50)
         plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
         plt.legend(fontsize=8)
         plt.xticks(ticks=[x_vals[0], x_vals[int(len(x_vals)/2) + 1], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[int(len(x_vals)/2) + 1], x_tick_vals[-1]])
