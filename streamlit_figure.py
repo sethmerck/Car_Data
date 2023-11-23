@@ -77,6 +77,7 @@ data_merged = data_merged[data_merged['size'] > 200]
 
 # st.pyplot(a)
 
+### ###
 plt.rcParams["figure.figsize"] = [7.00, 3.50]
 plt.rcParams["figure.autolayout"] = True
 fig, ax = plt.subplots(1, 2)
@@ -100,10 +101,10 @@ for k in ax:
     
     k.set_xlim(0, 350000)
     count+=1
+###############
 
 
 
-# st.pyplot(fig)
 st.write("")
 
 ## sorts by make data ##
@@ -122,27 +123,7 @@ data = data.explode('Car')
 prev_data = prev_data.query(f"Car in {brands}")
 data = data.query(f"Car in {brands}")
 
-### should be self contained ###
 
-    # st.write(x_vals)
-    # st.write(y_vals)
-    # st.write("")
-
-# st.write(data)
-# st.write("")
-###############################################################
-### Line graph showing every brands median change over time ####
-# fig, ax = plt.subplots()
-
-# for key, grp in data.groupby(['Car']):
-#     ax = grp.plot(ax=ax, kind='line', x=lines, y='Mileage', c=key, label=key)
-
-# plt.legend(loc='best')
-# plt.show()
-
-###################################
-
-## price box plot #
 a, b = plt.subplots(1,2, figsize=(10,5))
 
 sorted_prev_data = prev_data[prev_data['Car'].str.contains("Honda|Chevrolet|Nissan|Ford|Toyota")]
@@ -165,10 +146,7 @@ for k in b:
     k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
     count+=1
 a.suptitle("Price Distribution Model of Five Most Common Car Makes\n", fontsize=16)
-# labels = box.get_xticklabels(which='major')
 
-# counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
-# box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
 
 st.pyplot(a)
 
@@ -193,13 +171,11 @@ for k in b:
     k.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
     count+=1
 a.suptitle("Mileage Distribution Model of Five Most Common Car Makes\n", fontsize=16)
-# labels = box.get_xticklabels(which='major')
 
-# counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
-# box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
 
 st.pyplot(a)
 st.write("")
+
 ##stat_table## 
 
 prev_data_grouped = prev_data.groupby(by="Car")["Price"].agg([np.median, 'count'])
@@ -222,6 +198,8 @@ st.title("Breakdown of Make Data")
 st.dataframe(data_grouped,use_container_width=True)
 
 st.write("")
+
+### linear regression ###
 
 master_brand_dict = {}
 for i, v in enumerate(lines):
@@ -254,20 +232,13 @@ for i, v in enumerate(lines):
             list_of_two.append((v, brand_dict[key]))
             master_brand_dict[key] = list_of_two
     
-    
-    # pd.Series(df.Car,index=df.Mileage).to_dict()
-    
-    # st.write(v)
-    # st.write(brand_dict)
-    # st.write("")
-# st.write(master_brand_dict)
+
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     counts = [item[1]["count"] for item in master_brand_dict[brand]]
 
     count_avg = sum(counts)/len(counts)
 
-    # datetime.datetime.combine(i, datetime.time.min)  for i in lines
     if count_avg > 290:
         
         x_tick_vals = [item[0] for item in master_brand_dict[brand]]
@@ -279,8 +250,6 @@ for brand in master_brand_dict:
         m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
         
      
-        
-        
         plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}", s=20)
         plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
         plt.legend(fontsize=8)
