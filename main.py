@@ -90,7 +90,7 @@ if __name__ == "__main__":
                                         price_count += 1
                                         count+=1
                                     except IndexError:
-                                        print('REEEEEEEEEEEEEEEEe')
+                                        print('Error')
                                         print("")
                                 else:
                                     price_count += 1
