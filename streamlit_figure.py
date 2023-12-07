@@ -219,7 +219,11 @@ for i, v in enumerate(lines):
     # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
 
     
-    df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
+    # df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
+
+    df = df.groupby('Car').agg(Mileage=('Mileage', np.median),
+                       Count=('Mileage', 'count'),
+                       Price=('Price', np.median))
     
     # #df = df.drop(df[df["count"]<300].index)
     #df = df.rename(columns={'median': 'Mileage'})
