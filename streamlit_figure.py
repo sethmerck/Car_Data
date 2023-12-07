@@ -213,7 +213,10 @@ for i, v in enumerate(lines):
     df = df.explode('Car')
     
     df = df.query(f"Car in {brands}")
-    df = df.groupby(by="Car", as_index=False)[["Mileage", "Price"]].agg([np.median, 'count'])
+    
+    df = df.groupby(by="Car", as_index=False).agg({"Mileage: [np.median, 'count'], "Price": np.median})
+    #df.groupby('Category').agg({'Item':'size','shop1':['sum','mean','std'],'shop2':['sum','mean','std'],'shop3':['sum','mean','std']})
+    
     # df = df.drop(df[df["count"]<300].index)
     df = df.rename(columns={'median': 'Mileage'})
     # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
