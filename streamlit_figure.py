@@ -214,7 +214,7 @@ for i, v in enumerate(lines):
     
     df = df.query(f"Car in {brands}")
     
-    df = df.groupby(by="Car", as_index=False).agg({"Mileage": [np.median, 'count'], "Price": np.median})
+    df = df.groupby(by="Car", as_index=False)["Mileage"].agg([np.median, 'count'])
     #df.groupby('Category').agg({'Item':'size','shop1':['sum','mean','std'],'shop2':['sum','mean','std'],'shop3':['sum','mean','std']})
     
     # df = df.drop(df[df["count"]<300].index)
