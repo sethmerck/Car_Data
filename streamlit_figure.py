@@ -221,7 +221,7 @@ for i, v in enumerate(lines):
     
     # df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
 
-    df = df.groupby('Car').agg(Mileage=('Mileage', np.median),
+    df = df.groupby('Car', as_index=False).agg(Mileage=('Mileage', np.median),
                        Count=('Mileage', 'count'),
                        Price=('Price', np.median))
     
