@@ -215,7 +215,7 @@ for i, v in enumerate(lines):
     df = df.query(f"Car in {brands}")
     
     df = df.groupby(by="Car", as_index=False)
-    
+    df = df[["Mileage", "Price"]]
     # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
 
     
