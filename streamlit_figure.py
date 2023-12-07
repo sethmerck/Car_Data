@@ -202,7 +202,7 @@ st.write("")
 ### linear regression ###
 
 master_brand_dict = {}
-for i, v in enumerate(lines[:lines.index(z)+1]):
+for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     file = f"test_actions{i+1}.csv"
     df = pd.read_csv(f'working_dataset/{file}')
     df = df.drop(df[df["Mileage"]<100].index)
