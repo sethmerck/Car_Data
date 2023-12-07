@@ -229,7 +229,7 @@ for i, v in enumerate(lines):
     #df = df.rename(columns={'median': 'Mileage'})
     # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
     st.write(df)
-    df = df[['Mileage', 'count', 'Car']]
+    # df = df[['Mileage', 'count', 'Car']]
     
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict('index')
