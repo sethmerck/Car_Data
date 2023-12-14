@@ -26,4 +26,4 @@ As of November 19th, 2023 I've noticed that the median mileage of the majority o
 
 ## Optimizations:
 
-Improve layout of data presentation within Streamlit. Generate more descriptive statistics based on regional (zip code or zip code clusters) within Georgia. Consolidate chunks of code into more readable functions.
+Improve layout of data presentation within Streamlit. Generate more descriptive statistics based on regional (zip code or zip code clusters) within Georgia. Clean up code formatting and consolidate chunks of code into more readable functions.
