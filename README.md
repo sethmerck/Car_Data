@@ -24,7 +24,7 @@ Along with this, I found American made cars (Chevrolet and Ford) had more listin
 
 I've noticed that the median mileage of the majority of the most common car makes has been decreasing significantly. Will run further stats in line with this in the following weeks and investigate the matter further.
 
-Price for some makes also seems to be gradually increasing, while the price for other makes appears to be relatively stable.
+Median prices for some makes also seem to be gradually increasing, while the median prices for other makes appear to be relatively stable for the time being.
 
 ## Optimizations:
 
