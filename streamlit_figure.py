@@ -287,8 +287,7 @@ for brand in master_brand_dict:
         y_vals = [item[1]["Price"] for item in master_brand_dict[brand]]
         
         m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
-        st.write(x_vals)
-        st.write(y_vals)
+        
         st.write(r_value)
      
         plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}", s=10)
