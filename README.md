@@ -22,7 +22,9 @@ I found quite a few reasonably valued cars in my area that I'd consider purchasi
 
 Along with this, I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car makes (Honda, Nissan, Toyota).
 
-As of November 19th, 2023 I've noticed that the median mileage of the majority of the most common car makes has been decreasing significantly. Will run further stats in line with this in the following weeks and investigate the matter further.
+I've noticed that the median mileage of the majority of the most common car makes has been decreasing significantly. Will run further stats in line with this in the following weeks and investigate the matter further.
+
+Price for some makes also seems to be gradually increasing, while the price for other makes appears to be relatively stable.
 
 ## Optimizations:
 
