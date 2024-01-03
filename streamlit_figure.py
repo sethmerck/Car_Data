@@ -299,7 +299,7 @@ for brand in master_brand_dict:
     plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
 st.pyplot(fig)
 
-
+st.caption("Looks median price of all vehicles of my make of choice (Honda) has been pretty consistent over this period of time.")
 # st.caption("""I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car 
 #            makes (Honda, Nissan, Toyota). However, I did not find much difference in the mileage distributions for listings of these five brands. The next few weeks will be spent 
 #            discovering any new insights to be found in my datasets as more data comes in. As time progresses and my dataset grows, I'd like the ability to observe any 
