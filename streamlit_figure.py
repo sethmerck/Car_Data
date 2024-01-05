@@ -49,6 +49,106 @@ data_merged = pd.merge(data, data_grouped, on='Zip', how='left')
 prev_data_merged = prev_data_merged[prev_data_merged['size'] > 200]
 data_merged = data_merged[data_merged['size'] > 200]
 
+### linear regression ###
+
+master_brand_dict = {}
+for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
+    file = f"test_actions{i+1}.csv"
+    df = pd.read_csv(f'working_dataset/{file}')
+    df = df.drop(df[df["Mileage"]<100].index)
+    df = df.drop(df[df["Price"]<100].index)
+
+    df['Car'] = df['Car'].str.split(' ')
+
+    df = df.explode('Car')
+    
+    df = df.query(f"Car in {brands}")
+    
+    #df = df.groupby(by="Car", as_index=False)
+    #df = df[["Mileage", "Price"]]
+    # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
+
+    
+    # df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
+
+    df = df.groupby('Car', as_index=False).agg(Mileage=('Mileage', np.median),
+                       Count=('Mileage', 'count'),
+                       Price=('Price', np.median))
+    
+    # #df = df.drop(df[df["count"]<300].index)
+    #df = df.rename(columns={'median': 'Mileage'})
+    # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
+    # st.write(df)
+    # df = df[['Mileage', 'count', 'Car']]
+    
+    df.set_index('Car',inplace=True)
+    brand_dict = df.to_dict('index')
+    
+    
+    
+    for key in brand_dict:
+        if key in master_brand_dict:
+            master_brand_dict[key].append((v, brand_dict[key]))
+        else:
+            list_of_two = []
+            list_of_two.append((v, brand_dict[key]))
+            master_brand_dict[key] = list_of_two
+    
+
+fig = plt.figure(figsize=(8,8))
+for brand in master_brand_dict:
+    counts = [item[1]["Count"] for item in master_brand_dict[brand]]
+
+    count_avg = sum(counts)/len(counts)
+
+    if count_avg > 290:
+        
+        x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+        
+        x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
+        
+        y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
+        
+        m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+        
+     
+        plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}", s=10)
+        plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
+        plt.legend(fontsize=8, loc='upper right')
+        plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
+        # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
+        plt.xlabel('Date', labelpad=15)
+        plt.ylabel('Median Mileage', labelpad=15)
+    plt.title("Change in Median Mileage of Most Common Makes Over Time", pad=10)
+st.pyplot(fig)
+
+fig = plt.figure(figsize=(8,8))
+for brand in master_brand_dict:
+    counts = [item[1]["Count"] for item in master_brand_dict[brand]]
+
+    count_avg = sum(counts)/len(counts)
+
+    if count_avg > 290:
+        
+        x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+        
+        x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
+        
+        y_vals = [item[1]["Price"] for item in master_brand_dict[brand]]
+        
+        m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+        
+     
+        plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}", s=10)
+        plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
+        plt.legend(fontsize=8, loc='upper right')
+        plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
+        # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
+        plt.xlabel('Date', labelpad=15)
+        plt.ylabel('Median Price', labelpad=15)
+    plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
+st.pyplot(fig)
+
 ## price box plot #
 # a, b = plt.subplots(1,2, figsize=(10,5))
 
@@ -199,107 +299,9 @@ st.dataframe(data_grouped,use_container_width=True)
 
 st.write("")
 
-### linear regression ###
 
-master_brand_dict = {}
-for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
-    file = f"test_actions{i+1}.csv"
-    df = pd.read_csv(f'working_dataset/{file}')
-    df = df.drop(df[df["Mileage"]<100].index)
-    df = df.drop(df[df["Price"]<100].index)
 
-    df['Car'] = df['Car'].str.split(' ')
-
-    df = df.explode('Car')
-    
-    df = df.query(f"Car in {brands}")
-    
-    #df = df.groupby(by="Car", as_index=False)
-    #df = df[["Mileage", "Price"]]
-    # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
-
-    
-    # df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
-
-    df = df.groupby('Car', as_index=False).agg(Mileage=('Mileage', np.median),
-                       Count=('Mileage', 'count'),
-                       Price=('Price', np.median))
-    
-    # #df = df.drop(df[df["count"]<300].index)
-    #df = df.rename(columns={'median': 'Mileage'})
-    # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
-    # st.write(df)
-    # df = df[['Mileage', 'count', 'Car']]
-    
-    df.set_index('Car',inplace=True)
-    brand_dict = df.to_dict('index')
-    
-    
-    
-    for key in brand_dict:
-        if key in master_brand_dict:
-            master_brand_dict[key].append((v, brand_dict[key]))
-        else:
-            list_of_two = []
-            list_of_two.append((v, brand_dict[key]))
-            master_brand_dict[key] = list_of_two
-    
-
-fig = plt.figure(figsize=(8,8))
-for brand in master_brand_dict:
-    counts = [item[1]["Count"] for item in master_brand_dict[brand]]
-
-    count_avg = sum(counts)/len(counts)
-
-    if count_avg > 290:
-        
-        x_tick_vals = [item[0] for item in master_brand_dict[brand]]
-        
-        x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
-        
-        y_vals = [item[1]["Mileage"] for item in master_brand_dict[brand]]
-        
-        m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
-        
-     
-        plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}", s=10)
-        plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
-        plt.legend(fontsize=8, loc='upper right')
-        plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
-        # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
-        plt.xlabel('Date', labelpad=15)
-        plt.ylabel('Median Mileage', labelpad=15)
-    plt.title("Change in Median Mileage of Most Common Makes Over Time", pad=10)
-st.pyplot(fig)
-
-fig = plt.figure(figsize=(8,8))
-for brand in master_brand_dict:
-    counts = [item[1]["Count"] for item in master_brand_dict[brand]]
-
-    count_avg = sum(counts)/len(counts)
-
-    if count_avg > 290:
-        
-        x_tick_vals = [item[0] for item in master_brand_dict[brand]]
-        
-        x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
-        
-        y_vals = [item[1]["Price"] for item in master_brand_dict[brand]]
-        
-        m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
-        
-     
-        plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}", s=10)
-        plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
-        plt.legend(fontsize=8, loc='upper right')
-        plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
-        # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
-        plt.xlabel('Date', labelpad=15)
-        plt.ylabel('Median Price', labelpad=15)
-    plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
-st.pyplot(fig)
-
-st.caption("Looks median price of all vehicles of my make of choice (Honda) has been pretty consistent over this period of time.")
+# st.caption("Median price of all vehicles of my make of choice (Honda) has been pretty consistent over this period of time.")
 # st.caption("""I found American made cars (Chevrolet and Ford) had more listings and their price distributions skewed higher compared to the other three most common car 
 #            makes (Honda, Nissan, Toyota). However, I did not find much difference in the mileage distributions for listings of these five brands. The next few weeks will be spent 
 #            discovering any new insights to be found in my datasets as more data comes in. As time progresses and my dataset grows, I'd like the ability to observe any 
