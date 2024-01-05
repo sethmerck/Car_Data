@@ -49,6 +49,71 @@ data_merged = pd.merge(data, data_grouped, on='Zip', how='left')
 prev_data_merged = prev_data_merged[prev_data_merged['size'] > 200]
 data_merged = data_merged[data_merged['size'] > 200]
 
+## price box plot #
+# a, b = plt.subplots(1,2, figsize=(10,5))
+
+# prev_box = prev_data_merged.boxplot(column='Price', by="Zip", rot=15, ax=b[0])
+# box = data_merged.boxplot(column='Price', by="Zip", rot=15, ax=b[1])
+
+# count = 0
+# for k in b:
+#     if count == 0:
+#         k.set_title(f"Data Collected: {w}")
+#         counts = prev_data_merged.groupby(by="Zip")["Price"].count().tolist()
+#     else:
+#         k.set_title(f"Data Collected: {z}")
+#         counts = data_merged.groupby(by="Zip")["Price"].count().tolist()
+#     k.set_xlabel('Zip', fontsize = 14, labelpad=14)
+#     k.set_ylim(0, 250000)
+#     k.set_ylabel('Price', fontsize = 14, labelpad=14)
+#     labels = k.get_xticklabels(which='major')
+#     k.set_xticks(ticks=[i for i in range(1, len(counts)+1)], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)], fontsize=8)
+#     count+=1
+# a.suptitle("Price Distribution Model of Zip Codes With Over 200 Listings\n", fontsize=16)
+# labels = box.get_xticklabels(which='major')
+
+# counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
+# box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
+
+# st.pyplot(a)
+
+### ###
+plt.rcParams["figure.figsize"] = [7.00, 3.50]
+plt.rcParams["figure.autolayout"] = True
+fig, ax = plt.subplots(1, 2)
+fig.suptitle("Price vs. Mileage Regression Among All Listings")
+prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[0])
+plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[1])
+
+count = 0
+for k in ax:
+    if count == 0:
+        counts = prev_data["Price"].count().tolist()
+        k.set_title(f"Data Collected: {w}\n\nn = {counts}")
+    else:
+        counts = data["Price"].count().tolist()
+        k.set_title(f"Data Collected: {z}\n\nn = {counts}")
+    k.set_xlabel('Mileage', fontsize = 18, labelpad=18)
+    
+    k.set_ylabel('Price', fontsize = 18, labelpad=18)
+    
+    k.set_ylim(0, 250000)
+    
+    k.set_xlim(0, 350000)
+    count+=1
+###############
+
+
+
+st.write("")
+
+## sorts by make data ##
+
+f = open('brands.txt')
+brands = []
+for i in f.readlines():
+    brands.append(i.strip())
+
 ### linear regression ###
 
 master_brand_dict = {}
@@ -149,70 +214,7 @@ for brand in master_brand_dict:
     plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
 st.pyplot(fig)
 
-## price box plot #
-# a, b = plt.subplots(1,2, figsize=(10,5))
 
-# prev_box = prev_data_merged.boxplot(column='Price', by="Zip", rot=15, ax=b[0])
-# box = data_merged.boxplot(column='Price', by="Zip", rot=15, ax=b[1])
-
-# count = 0
-# for k in b:
-#     if count == 0:
-#         k.set_title(f"Data Collected: {w}")
-#         counts = prev_data_merged.groupby(by="Zip")["Price"].count().tolist()
-#     else:
-#         k.set_title(f"Data Collected: {z}")
-#         counts = data_merged.groupby(by="Zip")["Price"].count().tolist()
-#     k.set_xlabel('Zip', fontsize = 14, labelpad=14)
-#     k.set_ylim(0, 250000)
-#     k.set_ylabel('Price', fontsize = 14, labelpad=14)
-#     labels = k.get_xticklabels(which='major')
-#     k.set_xticks(ticks=[i for i in range(1, len(counts)+1)], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)], fontsize=8)
-#     count+=1
-# a.suptitle("Price Distribution Model of Zip Codes With Over 200 Listings\n", fontsize=16)
-# labels = box.get_xticklabels(which='major')
-
-# counts = sorted_data.groupby(by="Car")["Price"].count().tolist()
-# box.set_xticks(ticks=[1,2,3,4,5], labels=[f"{str(v)[12:-2]}\n n = {counts[i]}" for i, v in enumerate(labels)])
-
-# st.pyplot(a)
-
-### ###
-plt.rcParams["figure.figsize"] = [7.00, 3.50]
-plt.rcParams["figure.autolayout"] = True
-fig, ax = plt.subplots(1, 2)
-fig.suptitle("Price vs. Mileage Regression Among All Listings")
-prev_plot = sns.regplot(x=prev_data['Mileage'],y=prev_data['Price'], data=prev_data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[0])
-plot = sns.regplot(x=data['Mileage'],y=data['Price'], data=data, line_kws={"color": "red"}, fit_reg=True, logx=True, truncate=True, ax=ax[1])
-
-count = 0
-for k in ax:
-    if count == 0:
-        counts = prev_data["Price"].count().tolist()
-        k.set_title(f"Data Collected: {w}\n\nn = {counts}")
-    else:
-        counts = data["Price"].count().tolist()
-        k.set_title(f"Data Collected: {z}\n\nn = {counts}")
-    k.set_xlabel('Mileage', fontsize = 18, labelpad=18)
-    
-    k.set_ylabel('Price', fontsize = 18, labelpad=18)
-    
-    k.set_ylim(0, 250000)
-    
-    k.set_xlim(0, 350000)
-    count+=1
-###############
-
-
-
-st.write("")
-
-## sorts by make data ##
-
-f = open('brands.txt')
-brands = []
-for i in f.readlines():
-    brands.append(i.strip())
 
 prev_data['Car'] = prev_data['Car'].str.split(' ')
 data['Car'] = data['Car'].str.split(' ')
