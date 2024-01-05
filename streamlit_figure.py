@@ -177,7 +177,7 @@ for brand in master_brand_dict:
         m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
         
      
-        plt.scatter(x_vals, y_vals, label=f"{brand}:  R^2 = {round(r_value**2,2)}", s=10)
+        plt.scatter(x_vals, y_vals, label=f"{brand}", s=10)
         plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
         plt.legend(fontsize=8, loc='upper right')
         plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
