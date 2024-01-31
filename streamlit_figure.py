@@ -300,13 +300,13 @@ st.dataframe(data_grouped,use_container_width=True)
 
 st.write("")
 
-# master_brand_dict = {}
-# for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
-#     file = f"test_actions{i+1}.csv"
-#     df = pd.read_csv(f'working_dataset/{file}')
-#     df = df.drop(df[df["Mileage"]<100].index)
-#     df = df.drop(df[df["Price"]<100].index)
-#     df = df[df["Car"].str.contains('Accord')]
+master_brand_dict = {}
+for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
+    file = f"test_actions{i+1}.csv"
+    df = pd.read_csv(f'working_dataset/{file}')
+    df = df.drop(df[df["Mileage"]<100].index)
+    df = df.drop(df[df["Price"]<100].index)
+    df = df[df["Car"].str.contains('Accord')]
 #     st.write(df)
 #     # df['Car'] = df['Car'].str.split(' ')
 
@@ -332,8 +332,8 @@ st.write("")
     # # df = df[['Mileage', 'count', 'Car']]
     
     # df.set_index('Car',inplace=True)
-    # brand_dict = df.to_dict('index')
-    
+    brand_dict = df.to_dict('index')
+    st.write(brand_dict)
     
     
     # for key in brand_dict:
