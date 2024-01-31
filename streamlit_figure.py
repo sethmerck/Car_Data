@@ -315,7 +315,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     # df = df.query(f"Car in {brands}")
     
     #df = df.groupby(by="Car", as_index=False)
-    #df = df[["Mileage", "Price"]]
+    df = df[["Price"]]
     # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
 
     
@@ -333,17 +333,19 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict()
-    # st.write(brand_dict)
+    st.write(brand_dict)
     
     
-    for key in brand_dict:
-        if key in master_brand_dict:
-            master_brand_dict[key].append((v, brand_dict[key]))
-        else:
-            list_of_two = []
-            list_of_two.append((v, brand_dict[key]))
-            master_brand_dict[key] = list_of_two
-st.write(master_brand_dict["Price"])
+# for key in brand_dict:
+#     if key in master_brand_dict:
+#         master_brand_dict[key].append((v, brand_dict[key]))
+#     else:
+#         list_of_two = []
+#         list_of_two.append((v, brand_dict[key]))
+#         master_brand_dict[key] = list_of_two
+# st.write(master_brand_dict["Price"])
+
+
 # fig = plt.figure(figsize=(8,8))
 # for brand in master_brand_dict:
 #     st.write(brand)
