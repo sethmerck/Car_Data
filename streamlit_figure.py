@@ -300,42 +300,42 @@ st.dataframe(data_grouped,use_container_width=True)
 
 st.write("")
 
-master_brand_dict = {}
-for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
-    file = f"test_actions{i+1}.csv"
-    df = pd.read_csv(f'working_dataset/{file}')
-    df = df.drop(df[df["Mileage"]<100].index)
-    df = df.drop(df[df["Price"]<100].index)
-    df = df[df["Car"].str.contains('Accord')]
-#     st.write(df)
-#     # df['Car'] = df['Car'].str.split(' ')
+# master_brand_dict = {}
+# for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
+#     file = f"test_actions{i+1}.csv"
+#     df = pd.read_csv(f'working_dataset/{file}')
+#     df = df.drop(df[df["Mileage"]<100].index)
+#     df = df.drop(df[df["Price"]<100].index)
+#     df = df[df["Car"].str.contains('Accord')]
+# #     st.write(df)
+# #     # df['Car'] = df['Car'].str.split(' ')
 
-    # df = df.explode('Car')
+#     # df = df.explode('Car')
     
-    # df = df.query(f"Car in {brands}")
+#     # df = df.query(f"Car in {brands}")
     
-    #df = df.groupby(by="Car", as_index=False)
-    # df = df[["Price"]]
-    # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
+#     #df = df.groupby(by="Car", as_index=False)
+#     # df = df[["Price"]]
+#     # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
 
     
-    # df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
+#     # df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
 
-    # df = df.groupby('Car', as_index=False).agg(Mileage=('Mileage', np.median),
-    #                    Count=('Mileage', 'count'),
-    #                    Price=('Price', np.median))
+#     # df = df.groupby('Car', as_index=False).agg(Mileage=('Mileage', np.median),
+#     #                    Count=('Mileage', 'count'),
+#     #                    Price=('Price', np.median))
     
-    # # #df = df.drop(df[df["count"]<300].index)
-    # #df = df.rename(columns={'median': 'Mileage'})
-    # # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
-    # # st.write(df)
-    # # df = df[['Mileage', 'count', 'Car']]
+#     # # #df = df.drop(df[df["count"]<300].index)
+#     # #df = df.rename(columns={'median': 'Mileage'})
+#     # # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
+#     # # st.write(df)
+#     # # df = df[['Mileage', 'count', 'Car']]
     
-    df.set_index('Car',inplace=True)
-    brand_dict = df.to_dict()
-    # st.write(brand_dict["Price"])
-    master_brand_dict[v] = brand_dict["Price"]
-st.write(master_brand_dict)
+#     df.set_index('Car',inplace=True)
+#     brand_dict = df.to_dict()
+#     # st.write(brand_dict["Price"])
+#     master_brand_dict[v] = brand_dict["Price"]
+# st.write(master_brand_dict)
     
 # for key in brand_dict:
 #     if key in master_brand_dict:
