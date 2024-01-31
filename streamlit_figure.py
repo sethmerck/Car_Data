@@ -306,7 +306,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     df = pd.read_csv(f'working_dataset/{file}')
     df = df.drop(df[df["Mileage"]<100].index)
     df = df.drop(df[df["Price"]<100].index)
-    df = df[df["Car"].str.contains('Accord')]
+    df = df[df["Car"].str.contains('ACCORD')]
     st.write(df)
     # df['Car'] = df['Car'].str.split(' ')
 
