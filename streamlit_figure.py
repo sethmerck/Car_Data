@@ -300,6 +300,33 @@ st.dataframe(data_grouped,use_container_width=True)
 
 st.write("")
 
+fig = plt.figure(figsize=(8,8))
+for brand in master_brand_dict:
+    counts = [item[1]["Count"] for item in master_brand_dict[brand]]
+
+    count_avg = sum(counts)/len(counts)
+
+    if count_avg > 290:
+        
+        x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+        
+        x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
+        
+        y_vals = [item[1]["Price"] for item in master_brand_dict[brand]]
+        
+        m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+        
+     
+        plt.scatter(x_vals, y_vals, label=f"{brand}", s=10)
+        plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
+        plt.legend(fontsize=8, loc='upper right')
+        plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
+        # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
+        plt.xlabel('Date', labelpad=15)
+        plt.ylabel('Median Price', labelpad=15)
+    plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
+st.pyplot(fig)
+
 
 
 # st.caption("Median price of all vehicles of my make of choice (Honda) has been pretty consistent over this period of time.")
