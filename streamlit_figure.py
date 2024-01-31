@@ -331,7 +331,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     # # st.write(df)
     # # df = df[['Mileage', 'count', 'Car']]
     
-    # df.set_index('Car',inplace=True)
+    df.set_index('Car',inplace=True)
     brand_dict = df.to_dict('index')
     st.write(brand_dict)
     
