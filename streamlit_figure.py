@@ -300,82 +300,82 @@ st.dataframe(data_grouped,use_container_width=True)
 
 st.write("")
 
-master_brand_dict = {}
-for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
-    file = f"test_actions{i+1}.csv"
-    df = pd.read_csv(f'working_dataset/{file}')
-    df = df.drop(df[df["Mileage"]<100].index)
-    df = df.drop(df[df["Price"]<100].index)
-    df = df[df["Car"].str.contains('Accord')]
-#     st.write(df)
-#     # df['Car'] = df['Car'].str.split(' ')
+# master_brand_dict = {}
+# for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
+#     file = f"test_actions{i+1}.csv"
+#     df = pd.read_csv(f'working_dataset/{file}')
+#     df = df.drop(df[df["Mileage"]<100].index)
+#     df = df.drop(df[df["Price"]<100].index)
+#     df = df[df["Car"].str.contains('Accord')]
+# #     st.write(df)
+# #     # df['Car'] = df['Car'].str.split(' ')
 
-#     # df = df.explode('Car')
+# #     # df = df.explode('Car')
     
-#     # df = df.query(f"Car in {brands}")
+# #     # df = df.query(f"Car in {brands}")
     
-#     #df = df.groupby(by="Car", as_index=False)
-#     # df = df[["Price"]]
-#     # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
+# #     #df = df.groupby(by="Car", as_index=False)
+# #     # df = df[["Price"]]
+# #     # ["Mileage"].agg("Mileage"=('Mileage', np.median), "Price"=('Price', np.median))
 
     
-#     # df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
+# #     # df = df.groupby('Car').agg({'Mileage': [np.median,'count'], "Price": np.median}).reset_index()
 
-#     # df = df.groupby('Car', as_index=False).agg(Mileage=('Mileage', np.median),
-#     #                    Count=('Mileage', 'count'),
-#     #                    Price=('Price', np.median))
+# #     # df = df.groupby('Car', as_index=False).agg(Mileage=('Mileage', np.median),
+# #     #                    Count=('Mileage', 'count'),
+# #     #                    Price=('Price', np.median))
     
-#     # # #df = df.drop(df[df["count"]<300].index)
-#     # #df = df.rename(columns={'median': 'Mileage'})
-#     # # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
-#     # # st.write(df)
-#     # # df = df[['Mileage', 'count', 'Car']]
+# #     # # #df = df.drop(df[df["count"]<300].index)
+# #     # #df = df.rename(columns={'median': 'Mileage'})
+# #     # # brand_dict = pd.Series(df['count'].values, index=df.Car).to_dict()
+# #     # # st.write(df)
+# #     # # df = df[['Mileage', 'count', 'Car']]
     
-    df.set_index('Car',inplace=True)
-    brand_dict = df.to_dict()
-    # st.write(brand_dict["Price"])
-    master_brand_dict[i] = (v, brand_dict["Price"])
-# st.write(master_brand_dict)
+#     df.set_index('Car',inplace=True)
+#     brand_dict = df.to_dict()
+#     # st.write(brand_dict["Price"])
+#     master_brand_dict[i] = (v, brand_dict["Price"])
+# # st.write(master_brand_dict)
     
-# for key in brand_dict:
-#     if key in master_brand_dict:
-#         master_brand_dict[key].append((v, brand_dict[key]))
-#     else:
-#         list_of_two = []
-#         list_of_two.append((v, brand_dict[key]))
-#         master_brand_dict[key] = list_of_two
-# st.write(master_brand_dict["Price"])
+# # for key in brand_dict:
+# #     if key in master_brand_dict:
+# #         master_brand_dict[key].append((v, brand_dict[key]))
+# #     else:
+# #         list_of_two = []
+# #         list_of_two.append((v, brand_dict[key]))
+# #         master_brand_dict[key] = list_of_two
+# # st.write(master_brand_dict["Price"])
 
 
-fig = plt.figure(figsize=(8,8))
-# for brand in master_brand_dict:
-# st.write(brand)
-# counts = [item[1]["Count"] for item in master_brand_dict[brand]]
+# fig = plt.figure(figsize=(8,8))
+# # for brand in master_brand_dict:
+# # st.write(brand)
+# # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
 
-# count_avg = sum(counts)/len(counts)
+# # count_avg = sum(counts)/len(counts)
 
-# if count_avg > 290:
+# # if count_avg > 290:
     
-x_tick_vals = [item for item in master_brand_dict]
-st.write(x_tick_vals)
-# x_tick_vals = master_brand_dict[brand][0]
+# x_tick_vals = [item for item in master_brand_dict]
 # st.write(x_tick_vals)
-x_vals = datetime.datetime.combine(master_brand_dict[brand][0], datetime.time.min).timestamp()
-st.write(x_vals)
-y_vals = [item for item in master_brand_dict[brand][1]]
+# # x_tick_vals = master_brand_dict[brand][0]
+# # st.write(x_tick_vals)
+# x_vals = datetime.datetime.combine(master_brand_dict[brand][0], datetime.time.min).timestamp()
+# st.write(x_vals)
+# y_vals = [item for item in master_brand_dict[brand][1]]
 
-m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+# m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
 
 
-plt.scatter(x_vals, y_vals, label=f"{brand}", s=10)
-plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
-plt.legend(fontsize=8, loc='upper right')
-plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
-# x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
-plt.xlabel('Date', labelpad=15)
-plt.ylabel('Median Price', labelpad=15)
-plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
-st.pyplot(fig)
+# plt.scatter(x_vals, y_vals, label=f"{brand}", s=10)
+# plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
+# plt.legend(fontsize=8, loc='upper right')
+# plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
+# # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
+# plt.xlabel('Date', labelpad=15)
+# plt.ylabel('Median Price', labelpad=15)
+# plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
+# st.pyplot(fig)
 
 
 
