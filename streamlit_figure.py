@@ -356,7 +356,7 @@ fig = plt.figure(figsize=(8,8))
 
 # if count_avg > 290:
     
-x_tick_vals = [item[0] for item in master_brand_dict]
+x_tick_vals = [item for item in master_brand_dict]
 st.write(x_tick_vals)
 # x_tick_vals = master_brand_dict[brand][0]
 # st.write(x_tick_vals)
