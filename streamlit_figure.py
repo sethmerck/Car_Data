@@ -349,7 +349,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
 
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
-    # st.write(brand)
+    st.write(brand)
     # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
 
     # count_avg = sum(counts)/len(counts)
