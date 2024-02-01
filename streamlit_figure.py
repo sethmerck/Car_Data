@@ -349,7 +349,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
 
 fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
-    st.write(brand)
+    # st.write(brand)
     # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
 
     # count_avg = sum(counts)/len(counts)
@@ -357,11 +357,11 @@ for brand in master_brand_dict:
     # if count_avg > 290:
         
     # x_tick_vals = [item for item in master_brand_dict[brand]]
-    x_tick_vals = master_brand_dict[brand]
-    st.write(x_tick_vals)
-    x_vals = [datetime.datetime.combine(item, datetime.time.min).timestamp() for item in master_brand_dict[brand]]
-    
-    y_vals = [item[1]["Price"] for item in master_brand_dict[brand]]
+    x_tick_vals = master_brand_dict[brand][0]
+    # st.write(x_tick_vals)
+    x_vals = [datetime.datetime.combine(item, datetime.time.min).timestamp() for item in master_brand_dict[brand][0]]
+    st.write(x_vals)
+    y_vals = [item for item in master_brand_dict[brand][1]]
     
     m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
     
