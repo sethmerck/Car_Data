@@ -359,7 +359,7 @@ for brand in master_brand_dict:
     # x_tick_vals = [item for item in master_brand_dict[brand]]
     x_tick_vals = master_brand_dict[brand][0]
     # st.write(x_tick_vals)
-    x_vals = [datetime.datetime.combine(item, datetime.time.min).timestamp() for item in master_brand_dict[brand][0]]
+    x_vals = datetime.datetime.combine(master_brand_dict[brand][0], datetime.time.min).timestamp()
     st.write(x_vals)
     y_vals = [item for item in master_brand_dict[brand][1]]
     
