@@ -308,11 +308,13 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     df = df.drop(df[df["Price"]<100].index)
     df = df.drop(df[df["Price"]>100000].index)
     df = df[df["Car"].str.contains('Accord')]
+    df["Car"] = df["Car"].str.slice(start=0, stop=4)
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict()
 # st.write(brand_dict["Price"])
     master_brand_dict[i] = (v, brand_dict["Price"])
 zed = [list(master_brand_dict[item][1].keys()) for item in master_brand_dict]
+# zed = [i for i in zed]
 st.write(zed)
 #     st.write(df)
 #     # df['Car'] = df['Car'].str.split(' ')
