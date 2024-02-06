@@ -377,7 +377,7 @@ for brand in master_brand_dict:
     
     #label=f"{brand}"
     #plt.scatter(x_val, y, s=10)
-    plt.plot(x_val, np.poly1d(np.polyfit(x_val, y, 1))(x_val))
+   # plt.plot(x_val, np.poly1d(np.polyfit(x_val, y, 1))(x_val))
     plt.legend(fontsize=8, loc='upper right')
     #plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
     # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
