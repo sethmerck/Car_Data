@@ -370,8 +370,7 @@ for brand in master_brand_dict:
     
     # st.write(x_vals)
     for y in list(master_brand_dict[brand][1].values()):
-        st.write(y)
-        ax.plot(x_val, y)
+        ax.scatter(x_val, y)
    # y_vals = [item[0] for item in master_brand_dict[brand]]
     
     # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
@@ -385,7 +384,7 @@ for brand in master_brand_dict:
     plt.xlabel('Date', labelpad=15)
     plt.ylabel('Median Price', labelpad=15)
     plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
-st.pyplot(plt.show())
+st.pyplot(fig)
 
 
 
