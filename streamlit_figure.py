@@ -311,7 +311,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     brand_dict = df.to_dict()
 # st.write(brand_dict["Price"])
     master_brand_dict[i] = (v, brand_dict["Price"])
-# st.write([master_brand_dict[item][0] for item in master_brand_dict])
+st.write([master_brand_dict[item][1] for item in master_brand_dict])
 #     st.write(df)
 #     # df['Car'] = df['Car'].str.split(' ')
 
@@ -349,40 +349,40 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
 # # st.write(master_brand_dict["Price"])
 
 
-fig = plt.figure(figsize=(8,8))
-# for brand in master_brand_dict:
-# st.write(brand)
-# counts = [item[1]["Count"] for item in master_brand_dict[brand]]
+# fig = plt.figure(figsize=(8,8))
+# # for brand in master_brand_dict:
+# # st.write(brand)
+# # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
 
-# count_avg = sum(counts)/len(counts)
+# # count_avg = sum(counts)/len(counts)
 
-# if count_avg > 290:
+# # if count_avg > 290:
     
-x_tick_vals = [item for item in master_brand_dict]
-# st.write(x_tick_vals)
-# x_tick_vals = master_brand_dict[brand][0]
-# st.write(x_tick_vals)
-#x_vals = datetime.datetime.combine(master_brand_dict[brand][0], datetime.time.min).timestamp()
+# x_tick_vals = [item for item in master_brand_dict]
+# # st.write(x_tick_vals)
+# # x_tick_vals = master_brand_dict[brand][0]
+# # st.write(x_tick_vals)
+# #x_vals = datetime.datetime.combine(master_brand_dict[brand][0], datetime.time.min).timestamp()
 
-#x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+# #x_tick_vals = [item[0] for item in master_brand_dict[brand]]
         
-x_vals = [master_brand_dict[item][0] for item in master_brand_dict]
+# x_vals = [master_brand_dict[item][0] for item in master_brand_dict]
 
-# st.write(x_vals)
-y_vals = [master_brand_dict[item][1] for item in master_brand_dict]
+# # st.write(x_vals)
+# y_vals = [master_brand_dict[item][1] for item in master_brand_dict]
 
-# m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+# # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
 
-#label=f"{brand}"
-plt.scatter(x_vals, y_vals, s=10)
-plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
-plt.legend(fontsize=8, loc='upper right')
-plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
-# x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
-plt.xlabel('Date', labelpad=15)
-plt.ylabel('Median Price', labelpad=15)
-plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
-st.pyplot(fig)
+# #label=f"{brand}"
+# plt.scatter(x_vals, y_vals, s=10)
+# plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
+# plt.legend(fontsize=8, loc='upper right')
+# plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
+# # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
+# plt.xlabel('Date', labelpad=15)
+# plt.ylabel('Median Price', labelpad=15)
+# plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
+# st.pyplot(fig)
 
 
 
