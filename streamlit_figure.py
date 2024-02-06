@@ -366,10 +366,10 @@ for brand in master_brand_dict:
     
     #x_tick_vals = [item[0] for item in master_brand_dict[brand]]
             
-    x_val = list(master_brand_dict[brand][0])
+    x_val = master_brand_dict[brand][0]
     
     # st.write(x_vals)
-    for y in master_brand_dict[brand][1].values():
+    for y in list(master_brand_dict[brand][1].values()):
         ax.plot(x_val, y)
    # y_vals = [item[0] for item in master_brand_dict[brand]]
     
