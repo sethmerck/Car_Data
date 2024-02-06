@@ -382,7 +382,7 @@ for brand in master_brand_dict:
     #plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
     # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
     plt.xlabel('Date', labelpad=15)
-    plt.ylabel('Median Price', labelpad=15)
+    plt.ylabel('Price', labelpad=15)
     plt.title("Work in Progress, will show data just related to my focus, Honda Vehicles", pad=10)
 st.pyplot(fig)
 
