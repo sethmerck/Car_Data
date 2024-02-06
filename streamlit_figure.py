@@ -314,7 +314,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
 # st.write(brand_dict["Price"])
     master_brand_dict[i] = (v, brand_dict["Price"])
 zed = [list(master_brand_dict[item][1].keys()) for item in master_brand_dict]
-# zed = [i for i in zed]
+
 st.write(zed)
 #     st.write(df)
 #     # df['Car'] = df['Car'].str.split(' ')
