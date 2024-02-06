@@ -349,7 +349,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
 # # st.write(master_brand_dict["Price"])
 
 
-fig = plt.figure(figsize=(8,8))
+fig, ax = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     # st.write(brand)
     # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
