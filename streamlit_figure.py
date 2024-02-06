@@ -308,7 +308,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     df = df.drop(df[df["Price"]<100].index)
     df = df.drop(df[df["Price"]>100000].index)
     df = df[df["Car"].str.contains('Accord')]
-    df["Car"] = df["Car"].str.slice(start=0, stop=4)
+    df["Car"] = df["Car"].str.slice(start=0, stop=4).astype("int32")
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict()
 # st.write(brand_dict["Price"])
