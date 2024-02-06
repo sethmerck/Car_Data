@@ -385,7 +385,7 @@ for brand in master_brand_dict:
     plt.xlabel('Date', labelpad=15)
     plt.ylabel('Median Price', labelpad=15)
     plt.title("Change in Median Price of Most Common Makes Over Time", pad=10)
-st.pyplot(fig)
+st.pyplot(plt.show())
 
 
 
