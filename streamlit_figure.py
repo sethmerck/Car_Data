@@ -306,6 +306,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     df = pd.read_csv(f'working_dataset/{file}')
     df = df.drop(df[df["Mileage"]<100].index)
     df = df.drop(df[df["Price"]<100].index)
+    df = df.drop(df[df["Price"]>150000].index)
     df = df[df["Car"].str.contains('Accord')]
     df.set_index('Car',inplace=True)
     brand_dict = df.to_dict()
