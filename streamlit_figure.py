@@ -370,13 +370,13 @@ for brand in master_brand_dict:
     
     # st.write(x_vals)
     for y in master_brand_dict[brand][1]:
-        fig.plot(x_val, y)
+        plt.scatter(x_val, y, s=10)
    # y_vals = [item[0] for item in master_brand_dict[brand]]
     
     # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
     
     #label=f"{brand}"
-    plt.scatter(x_val, y, s=10)
+    #plt.scatter(x_val, y, s=10)
     plt.plot(x_val, np.poly1d(np.polyfit(x_val, y, 1))(x_val))
     plt.legend(fontsize=8, loc='upper right')
     #plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
