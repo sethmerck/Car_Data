@@ -369,7 +369,7 @@ x_tick_vals = [item for item in master_brand_dict]
 x_vals = [master_brand_dict[item][0] for item in master_brand_dict]
 
 # st.write(x_vals)
-y_vals = [master_brand_dict[item][1] for item in master_brand_dict]
+y_vals = [list(master_brand_dict[item][1].values()) for item in master_brand_dict]
 
 # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
 
