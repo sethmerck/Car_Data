@@ -364,7 +364,7 @@ x_tick_vals = [item for item in master_brand_dict]
 # st.write(x_tick_vals)
 #x_vals = datetime.datetime.combine(master_brand_dict[brand][0], datetime.time.min).timestamp()
 
-x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+#x_tick_vals = [item[0] for item in master_brand_dict[brand]]
         
 x_vals = [master_brand_dict[item][0] for item in master_brand_dict]
 
@@ -373,8 +373,8 @@ y_vals = [master_brand_dict[item][1] for item in master_brand_dict]
 
 m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
 
-
-plt.scatter(x_vals, y_vals, label=f"{brand}", s=10)
+#label=f"{brand}"
+plt.scatter(x_vals, y_vals, s=10)
 plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
 plt.legend(fontsize=8, loc='upper right')
 plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
