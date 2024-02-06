@@ -349,7 +349,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
 # # st.write(master_brand_dict["Price"])
 
 
-fig, ax = plt.figure(figsize=(8,8))
+fig = plt.figure(figsize=(8,8))
 for brand in master_brand_dict:
     # st.write(brand)
     # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
@@ -370,7 +370,7 @@ for brand in master_brand_dict:
     
     # st.write(x_vals)
     for y in master_brand_dict[brand][1]:
-        ax.plot(x_val, y)
+        fig.plot(x_val, y)
    # y_vals = [item[0] for item in master_brand_dict[brand]]
     
     # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
