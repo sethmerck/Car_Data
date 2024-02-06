@@ -369,7 +369,7 @@ for brand in master_brand_dict:
     x_val = master_brand_dict[brand][0]
     
     # st.write(x_vals)
-    for y in master_brand_dict[brand][1]:
+    for y in list(master_brand_dict[brand][1].values()):
         ax.plot(x_val, y, s=10)
    # y_vals = [item[0] for item in master_brand_dict[brand]]
     
