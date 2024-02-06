@@ -371,7 +371,7 @@ x_vals = [master_brand_dict[item][0] for item in master_brand_dict]
 # st.write(x_vals)
 y_vals = [master_brand_dict[item][1] for item in master_brand_dict]
 
-m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+# m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
 
 #label=f"{brand}"
 plt.scatter(x_vals, y_vals, s=10)
