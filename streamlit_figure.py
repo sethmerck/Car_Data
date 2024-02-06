@@ -311,7 +311,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     brand_dict = df.to_dict()
 # st.write(brand_dict["Price"])
     master_brand_dict[i] = (v, brand_dict["Price"])
-st.write([master_brand_dict[item][1].values() for item in master_brand_dict])
+st.write([list(master_brand_dict[item][1].values()) for item in master_brand_dict])
 #     st.write(df)
 #     # df['Car'] = df['Car'].str.split(' ')
 
