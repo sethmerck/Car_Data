@@ -309,9 +309,10 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     df = df.drop(df[df["Price"]>100000].index)
     df = df[df["Car"].str.contains('Accord')]
     df["Car"] = df["Car"].str.slice(start=0, stop=4).astype("int32")
+    df.set_index('Car')
     st.write(df.describe())
     df = df.groupby(pd.cut(df['Car'], [0, 1998, 2003, 2008, 2013, 2018, 2023, 2025]))[["Price"]].agg([np.median, 'count'])
-    df=df.set_index('Car',inplace=True)
+    
     st.write(df)
     
     # brand_dict = df.to_dict()
