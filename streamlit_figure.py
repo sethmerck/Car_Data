@@ -312,7 +312,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     st.write(df.describe())
     df = df.groupby(pd.cut(df['Car'], [0, 1998, 2003, 2008, 2013, 2018, 2023, 2025]))[["Car", "Price", "Mileage"]].describe()
     st.write(df)
-    df.set_index('Car',inplace=True)
+    # df.set_index('Car',inplace=True)
     brand_dict = df.to_dict()
 # st.write(brand_dict["Price"])
     master_brand_dict[i] = (v, brand_dict["Price"])
