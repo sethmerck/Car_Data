@@ -310,7 +310,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     df = df[df["Car"].str.contains('Accord')]
     df["Car"] = df["Car"].str.slice(start=0, stop=4).astype("int32")
  
-    df = df.groupby(pd.cut(df['Car'], [0, 1998, 2003, 2008, 2013, 2018, 2023, 2025]))[["Price"]].agg(Media_Price=("Price", np.median), Count=("Price", 'count'))
+    df = df.groupby(pd.cut(df['Car'], [0, 1998, 2003, 2008, 2013, 2018, 2023, 2025]))[["Price"]].agg(Median_Price=("Price", np.median), Count=("Price", 'count'))
     
     st.write(df)
     
