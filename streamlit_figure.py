@@ -314,7 +314,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     
     
     st.write(df)
-    df = df.set_index('Car')
+    # df = df.set_index('Car')
     brand_dict = df.to_dict('index')
     st.write(brand_dict)
     #df.set_index('Car',inplace=True)
