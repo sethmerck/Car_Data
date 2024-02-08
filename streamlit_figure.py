@@ -300,7 +300,7 @@ st.dataframe(data_grouped,use_container_width=True)
 
 st.write("")
 
-# master_brand_dict = {}
+master_brand_dict = {}
 for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     file = f"test_actions{i+1}.csv"
     df = pd.read_csv(f'working_dataset/{file}')
@@ -314,9 +314,10 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     
     st.write(df)
     
-    # brand_dict = df.to_dict()
+    brand_dict = df.to_dict()
 # st.write(brand_dict["Price"])
-    # master_brand_dict[i] = (v, brand_dict["Price"])
+    master_brand_dict[i] = (v, brand_dict["Price"])
+st.write(master_brand_dict)
 # zed = [sorted(list(master_brand_dict[item][1].keys())) for item in master_brand_dict]
 
 # st.write(zed)
