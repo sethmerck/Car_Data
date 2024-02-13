@@ -342,7 +342,9 @@ for brand in master_brand_dict:
     y_vals = [item[1]["Median_Price"] for item in master_brand_dict[brand] if not np.isnan(item[1]["Median_Price"])]
     
     m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
-    
+
+    if x_vals[0] == w:
+        plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
  
     plt.scatter(x_vals, y_vals, label=f"{brand}", s=10)
     plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
