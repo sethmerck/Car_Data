@@ -343,7 +343,7 @@ for brand in master_brand_dict:
     
     m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
 
-    if x_tick_vals[0] == w:
+    if x_tick_vals[0] == w and x_tick_vals[-1] == z:
         plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
  
     plt.scatter(x_vals, y_vals, label=f"{brand}", s=10)
