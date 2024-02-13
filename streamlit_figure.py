@@ -337,7 +337,7 @@ for brand in master_brand_dict:
         
     x_tick_vals = [item[0] for item in master_brand_dict[brand]]
     
-    x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
+    x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand] if not np.isnan(item[1]["Median_Price"])]
     
     y_vals = [item[1]["Median_Price"] for item in master_brand_dict[brand] if not np.isnan(item[1]["Median_Price"])]
     
