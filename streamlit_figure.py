@@ -312,11 +312,21 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
  
     df = df.groupby(pd.cut(df['Car'], [0, 1998, 2003, 2008, 2013, 2018, 2023, 2025]))[["Price"]].agg(Median_Price=("Price", np.median), Count=("Price", 'count'))
     df.index = df.index.astype("string")
-    st.write(df)
+    # st.write(df)
     
 #     # df = df.set_index('Car')
     brand_dict = df.to_dict('index')
-    st.write(brand_dict)
+    # st.write(brand_dict)
+
+
+    for key in brand_dict:
+        if key in master_brand_dict:
+            master_brand_dict[key].append((v, brand_dict[key]))
+        else:
+            list_of_two = []
+            list_of_two.append((v, brand_dict[key]))
+            master_brand_dict[key] = list_of_two
+st.write(master_brand_dict)
 #     #df.set_index('Car',inplace=True)
 #     # brand_dict = df.to_dict('index')
 #   #  brand_dict = df.to_dict()
