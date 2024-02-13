@@ -328,12 +328,12 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
             master_brand_dict[key] = list_of_two
 #st.write(master_brand_dict)
 fig = plt.figure(figsize=(8,8))
-
+count_averages = []
 for brand in master_brand_dict:
     counts = [item[1]["Count"] for item in master_brand_dict[brand]]
 
     count_avg = sum(counts)/len(counts)
-
+    plt.legend(labels = f"{[brand for brand in master_brand_dict]} {count_avg}", fontsize=8, loc='upper right')
     # if count_avg > 290:
         
     x_tick_vals = [item[0] for item in master_brand_dict[brand] if not np.isnan(item[1]["Median_Price"])]
@@ -354,7 +354,7 @@ for brand in master_brand_dict:
     plt.xlabel('Date', labelpad=15)
     plt.ylabel('Median Price', labelpad=15)
     plt.title("Change in Median Price of Honda Accord Generations Over Time", pad=10)
-plt.legend(labels = [brand for brand in master_brand_dict], fontsize=8, loc='upper right')
+
 st.pyplot(fig)
 #     #df.set_index('Car',inplace=True)
 #     # brand_dict = df.to_dict('index')
