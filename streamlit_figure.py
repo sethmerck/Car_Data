@@ -352,7 +352,7 @@ for brand in master_brand_dict:
     plt.ylabel('Median Price', labelpad=15)
     plt.title("Change in Median Price of Honda Accord Generations Over Time", pad=10)
 
-st.write(type(w), z)
+st.write(type(w.timestamp()), z)
 plt.xticks(ticks=[w, z], labels=[w, z])
 #plt.xticks(ticks=[lines.index(w), lines.index(z)+1], labels=[lines.index(w), lines.index(z)+1])
 
