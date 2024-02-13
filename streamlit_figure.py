@@ -339,7 +339,7 @@ for brand in master_brand_dict:
     
     x_vals = [datetime.datetime.combine(item[0], datetime.time.min).timestamp() for item in master_brand_dict[brand]]
     
-    y_vals = [item[1]["Count"] for item in master_brand_dict[brand]]
+    y_vals = [item[1]["Median_Price"] for item in master_brand_dict[brand]]
     
     m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
     
