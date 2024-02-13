@@ -394,8 +394,10 @@ for brand in master_brand_dict:
     # st.write(x_val)
     # ys = master_brand_dict[brand][1]
     # st.write(ys)
+    c=1
     for i, y in enumerate(list(master_brand_dict[brand][1])):
-        ax.scatter(x_tick_vals[i], y)
+        ax.scatter(x_tick_vals[i], c)
+        c+=1
    # y_vals = [item[0] for item in master_brand_dict[brand]]
     
     # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
