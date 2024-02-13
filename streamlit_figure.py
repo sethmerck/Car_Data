@@ -391,8 +391,9 @@ for brand in master_brand_dict:
     #x_tick_vals = [item[0] for item in master_brand_dict[brand]]
             
     x_val = master_brand_dict[brand][0]
-    
-    # st.write(x_vals)
+    st.write(x_val)
+    ys = master_brand_dict[brand][1]
+    st.write(ys)
     for y in list(master_brand_dict[brand][1]):
         ax.scatter(x_val, y)
    # y_vals = [item[0] for item in master_brand_dict[brand]]
