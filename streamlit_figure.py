@@ -326,7 +326,8 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
             list_of_two = []
             list_of_two.append((v, brand_dict[key]))
             master_brand_dict[key] = list_of_two
-# st.write(master_brand_dict)
+
+st.write(master_brand_dict)
 #     #df.set_index('Car',inplace=True)
 #     # brand_dict = df.to_dict('index')
 #   #  brand_dict = df.to_dict()
@@ -373,43 +374,43 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
 # # st.write(master_brand_dict["Price"])
 
 
-fig, ax = plt.subplots(figsize=(8,8))
-for brand in master_brand_dict:
-    # st.write(brand)
-    # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
+# fig, ax = plt.subplots(figsize=(8,8))
+# for brand in master_brand_dict:
+#     # st.write(brand)
+#     # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
     
-    # count_avg = sum(counts)/len(counts)
+#     # count_avg = sum(counts)/len(counts)
     
-    # if count_avg > 290:
+#     # if count_avg > 290:
         
-    # x_tick_vals = [item[0] for item in master_brand_dict[brand]]
-    # st.write(x_tick_vals)
-    # x_tick_vals = master_brand_dict[brand][0]
-    # st.write(x_tick_vals)
-    #x_vals = datetime.datetime.combine(master_brand_dict[brand][0], datetime.time.min).timestamp()
+#     # x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+#     # st.write(x_tick_vals)
+#     # x_tick_vals = master_brand_dict[brand][0]
+#     # st.write(x_tick_vals)
+#     #x_vals = datetime.datetime.combine(master_brand_dict[brand][0], datetime.time.min).timestamp()
     
-    #x_tick_vals = [item[0] for item in master_brand_dict[brand]]
+#     #x_tick_vals = [item[0] for item in master_brand_dict[brand]]
             
-    x_val = master_brand_dict[brand][0]
-    st.write(x_val)
-    ys = master_brand_dict[brand][1]
-    st.write(ys)
-    for y in list(master_brand_dict[brand][1]):
-        ax.scatter(x_val, y)
-   # y_vals = [item[0] for item in master_brand_dict[brand]]
+#     x_val = master_brand_dict[brand][0]
+#     st.write(x_val)
+#     ys = master_brand_dict[brand][1]
+#     st.write(ys)
+#     for y in list(master_brand_dict[brand][1]):
+#         ax.scatter(x_val, y)
+#    # y_vals = [item[0] for item in master_brand_dict[brand]]
     
-    # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
+#     # m, b, r_value, p_value, std_err = scipy.stats.linregress(x_vals, y_vals)
     
-    #label=f"{brand}"
-    #plt.scatter(x_val, y, s=10)
-   # plt.plot(x_val, np.poly1d(np.polyfit(x_val, y, 1))(x_val))
-    plt.legend(fontsize=8, loc='upper right')
-    #plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
-    # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
-    plt.xlabel('Date', labelpad=15)
-    plt.ylabel('Price', labelpad=15)
-    plt.title("Work in Progress, will show data just related to my focus, Honda Vehicles", pad=10)
-st.pyplot(fig)
+#     #label=f"{brand}"
+#     #plt.scatter(x_val, y, s=10)
+#    # plt.plot(x_val, np.poly1d(np.polyfit(x_val, y, 1))(x_val))
+#     plt.legend(fontsize=8, loc='upper right')
+#     #plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
+#     # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
+#     plt.xlabel('Date', labelpad=15)
+#     plt.ylabel('Price', labelpad=15)
+#     plt.title("Work in Progress, will show data just related to my focus, Honda Vehicles", pad=10)
+# st.pyplot(fig)
 
 
 
