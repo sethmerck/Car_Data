@@ -328,10 +328,11 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
             master_brand_dict[key] = list_of_two
 #st.write(master_brand_dict)
 fig = plt.figure(figsize=(8,8))
+p=1
 for brand in master_brand_dict:
-    # counts = [item[1]["Count"] for item in master_brand_dict[brand]]
+    counts = [item[1]["Count"] for item in master_brand_dict[brand]]
 
-    # count_avg = sum(counts)/len(counts)
+    count_avg = sum(counts)/len(counts)
 
     # if count_avg > 290:
         
@@ -348,7 +349,8 @@ for brand in master_brand_dict:
  
     plt.scatter(x_vals, y_vals, label=f"{brand}", s=10)
     plt.plot(x_vals, np.poly1d(np.polyfit(x_vals, y_vals, 1))(x_vals))
-    plt.legend(fontsize=8, loc='upper right')
+    plt.legend(labels = [p], fontsize=8, loc='upper right')
+    p+=1
     # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
     plt.xlabel('Date', labelpad=15)
     plt.ylabel('Median Price', labelpad=15)
