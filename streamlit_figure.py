@@ -395,7 +395,7 @@ for brand in master_brand_dict:
     # ys = master_brand_dict[brand][1]
     # st.write(ys)
     c=1
-    for i, y in enumerate(list(master_brand_dict[brand][1]["Count"])):
+    for i, y in enumerate(list(master_brand_dict[brand][i][1]["Count"])):
         ax.scatter(x_tick_vals[i], c)
         c+=1
    # y_vals = [item[0] for item in master_brand_dict[brand]]
