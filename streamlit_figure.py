@@ -327,7 +327,7 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
             list_of_two.append((v, brand_dict[key]))
             master_brand_dict[key] = list_of_two
 
-st.write(master_brand_dict)
+#st.write(master_brand_dict)
 #     #df.set_index('Car',inplace=True)
 #     # brand_dict = df.to_dict('index')
 #   #  brand_dict = df.to_dict()
@@ -395,7 +395,7 @@ for brand in master_brand_dict:
     # ys = master_brand_dict[brand][1]
     # st.write(ys)
     c=1
-    for i, y in enumerate(list(master_brand_dict[brand][1])):
+    for i, y in enumerate(list(master_brand_dict[brand][1]["Count"])):
         ax.scatter(x_tick_vals[i], c)
         c+=1
    # y_vals = [item[0] for item in master_brand_dict[brand]]
