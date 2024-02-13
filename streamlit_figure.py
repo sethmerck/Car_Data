@@ -354,10 +354,6 @@ for brand in master_brand_dict:
     plt.ylabel('Median Price', labelpad=15)
     plt.title("Change in Median Price of Honda Accord Generations Over Time", pad=10)
 
-
-# plt.xticks(ticks=[x_vals[0], x_vals[-1]], labels=[x_tick_vals[0], x_tick_vals[-1]])
-#plt.xticks(ticks=[lines.index(w), lines.index(z)+1], labels=[lines.index(w), lines.index(z)+1])
-st.write(x_tick_vals[0])
 st.pyplot(fig)
 #     #df.set_index('Car',inplace=True)
 #     # brand_dict = df.to_dict('index')
