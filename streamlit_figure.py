@@ -333,6 +333,7 @@ for brand in master_brand_dict:
     counts = [item[1]["Count"] for item in master_brand_dict[brand]]
 
     count_avg = sum(counts)/len(counts)
+    count_avg = round(count_avg, 2)
     count_averages.append(f"{brand}: {count_avg}")
     # if count_avg > 290:
         
