@@ -355,7 +355,7 @@ for brand in master_brand_dict:
     # x_vals[int(len(x_vals)/2) + 1] x_tick_vals[int(len(x_vals)/2) + 1], 
     plt.xlabel('Date', labelpad=15)
     plt.ylabel('Median Price', labelpad=15)
-    plt.title("Change in Median Price of Honda Accord Generations Over Time", pad=10)
+    plt.title("Change in Median Price of Honda Accord Generations Over Time (Work in Progress)", pad=10)
 
 # plt.legend(labels = count_averages, fontsize=8, loc='upper right')
 st.pyplot(fig)
