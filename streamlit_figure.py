@@ -320,13 +320,13 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
 
     #st.write(brand_dict[1])
     for key in brand_dict:
-        st.write(key)
-        if key in master_brand_dict:
-            master_brand_dict[key].append((v, brand_dict[key]))
-        else:
-            list_of_two = []
-            list_of_two.append((v, brand_dict[key]))
-            master_brand_dict[key] = list_of_two
+        if key == "(2003, 2008]":
+            if key in master_brand_dict:
+                master_brand_dict[key].append((v, brand_dict[key]))
+            else:
+                list_of_two = []
+                list_of_two.append((v, brand_dict[key]))
+                master_brand_dict[key] = list_of_two
 #st.write(master_brand_dict)
 fig = plt.figure(figsize=(8,8))
 # count_averages = []
