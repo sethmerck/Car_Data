@@ -318,8 +318,8 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     brand_dict = df.to_dict('index')
     # st.write(brand_dict)
 
-    #st.write(brand_dict)
-    for key in brand_dict["(2003, 2008]"]:
+    #st.write(brand_dict.keys())
+    for key in brand_dict:
         if key in master_brand_dict:
             master_brand_dict[key].append((v, brand_dict[key]))
         else:
