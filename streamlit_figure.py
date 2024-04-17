@@ -318,8 +318,9 @@ for i, v in enumerate(lines[lines.index(w):lines.index(z)+1]):
     brand_dict = df.to_dict('index')
     # st.write(brand_dict)
 
-    st.write(brand_dict[1])
+    #st.write(brand_dict[1])
     for key in brand_dict:
+        st.write(key)
         if key in master_brand_dict:
             master_brand_dict[key].append((v, brand_dict[key]))
         else:
